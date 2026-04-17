@@ -5339,10 +5339,14 @@ document.querySelector("[data-fls-quantity]") && window.addEventListener("load",
 var lazySelector = "img[data-fls-lazy][data-src]";
 var loadedAttribute = "data-fls-lazy-loaded";
 function setLazySource(element, dataKey, attrName) {
-	const value = element.dataset[dataKey];
+	const value = resolveLazySource(element.dataset[dataKey]);
 	if (!value) return;
 	element.setAttribute(attrName, value);
 	element.removeAttribute(`data-${dataKey.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`)}`);
+}
+function resolveLazySource(value) {
+	if (!value) return "";
+	return value.replace(/^\/src\/assets\//, "/assets/").replace(/^src\/assets\//, "/assets/");
 }
 function loadLazyImage(image) {
 	if (image.hasAttribute(loadedAttribute)) return;
