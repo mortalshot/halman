@@ -4322,6 +4322,11 @@ function updateHeroVideoState(swiper, shouldPlay = true) {
 		});
 	});
 }
+function markSliderReady(slider) {
+	slider.classList.add("_slider-ready");
+	slider.closest("[data-fls-slider-wrapper]")?.classList.add("_slider-ready");
+	slider.closest("[data-fls-hero]")?.classList.add("_slider-ready");
+}
 function initHeroSliders() {
 	document.querySelectorAll("[data-fls-slider=\"hero\"]").forEach((slider) => {
 		const section = slider.closest("[data-fls-hero]");
@@ -4370,6 +4375,7 @@ function initHeroSliders() {
 				}
 			}
 		});
+		markSliderReady(slider);
 		if (section) new IntersectionObserver(([entry]) => {
 			isSectionVisible = entry.isIntersecting;
 			updateHeroVideoState(heroSwiper, isSectionVisible);
@@ -4404,6 +4410,7 @@ function initProductsSliders() {
 			} : false,
 			breakpoints: { 480: { spaceBetween: 16 } }
 		});
+		markSliderReady(slider);
 	});
 }
 function initSalesSliders() {
@@ -4433,6 +4440,7 @@ function initSalesSliders() {
 			} : false,
 			breakpoints: { 480: { spaceBetween: 16 } }
 		});
+		markSliderReady(slider);
 	});
 }
 function initProductCardSliders() {
@@ -4458,6 +4466,7 @@ function initProductCardSliders() {
 				clickable: true
 			} : false
 		});
+		markSliderReady(slider);
 		if (!hoverNav || productCardSwiper.slides.length <= 1) return;
 		hoverNav.replaceChildren();
 		productCardSwiper.slides.forEach((_, index) => {
@@ -4496,6 +4505,7 @@ function initCategoriesSliders() {
 			} : false,
 			breakpoints: { 480: { spaceBetween: 16 } }
 		});
+		markSliderReady(slider);
 	});
 }
 function initSliders() {
@@ -4505,7 +4515,7 @@ function initSliders() {
 	initSalesSliders();
 	initProductCardSliders();
 }
-if (document.querySelector("[data-fls-slider]")) window.addEventListener("load", initSliders);
+if (document.querySelector("[data-fls-slider]")) document.addEventListener("DOMContentLoaded", initSliders);
 //#endregion
 //#region src/js/common/functions.js
 function addLoadedAttr() {
@@ -4960,6 +4970,14 @@ var getOptimizedImagePath = (image, targetImage) => {
 	if (/\.webp(?:[?#].*)?$/i.test(currentImage)) return image.replace(/\.(jpe?g|png)([?#].*)?$/i, ".webp$2");
 	return image;
 };
+var setCatalogImage = (imageElement, image, alt = "") => {
+	if (!imageElement || !image) return;
+	imageElement.src = getOptimizedImagePath(image, imageElement);
+	imageElement.removeAttribute("data-src");
+	imageElement.removeAttribute("data-fls-lazy");
+	imageElement.classList.add("_lazy-loaded");
+	if (alt) imageElement.alt = alt;
+};
 document.querySelectorAll("[data-fls-headercatalog]").forEach((catalog) => {
 	const toggle = catalog.querySelector(".header-catalog__toggle");
 	const overlay = catalog.querySelector(".header-catalog__overlay");
@@ -4986,7 +5004,7 @@ document.querySelectorAll("[data-fls-headercatalog]").forEach((catalog) => {
 		const oldPrice = model.dataset.oldPrice || "";
 		const price = model.dataset.price || "";
 		const badge = (model.dataset.badge || "").toLowerCase();
-		if (previewImage && image) previewImage.src = getOptimizedImagePath(image, previewImage);
+		setCatalogImage(previewImage, image);
 		if (previewBadge) {
 			previewBadge.textContent = badge.toUpperCase();
 			previewBadge.className = `header-catalog__preview-badge badge${badge ? ` badge_${badge}` : ""}`;
@@ -4999,10 +5017,7 @@ document.querySelectorAll("[data-fls-headercatalog]").forEach((catalog) => {
 		const cardOldPrice = productCard.querySelector(".product-card__old-price");
 		const cardPrice = productCard.querySelector(".product-card__price");
 		const cardBadge = productCard.querySelector(".product-card__badge");
-		if (cardImage && image) {
-			cardImage.src = getOptimizedImagePath(image, cardImage);
-			cardImage.alt = title;
-		}
+		setCatalogImage(cardImage, image, title);
 		if (cardImageLink) cardImageLink.href = "#";
 		if (cardTitle) {
 			cardTitle.textContent = title;
@@ -5138,15 +5153,6 @@ function headerScroll() {
 	});
 }
 document.querySelector("[data-fls-header-scroll]") && window.addEventListener("load", headerScroll);
-//#endregion
-//#region src/components/layout/header/header.js
-function initHeaderTransparent() {
-	const header = document.querySelector("[data-fls-header]");
-	const firstBlock = document.querySelector("main")?.firstElementChild;
-	if (!header || !firstBlock) return;
-	header.classList.toggle("header_transparent", firstBlock.matches("[data-fls-hero], .hero"));
-}
-initHeaderTransparent();
 //#endregion
 //#region src/components/layout/dynamic/dynamic.js
 var DynamicAdapt = class {
@@ -5328,6 +5334,78 @@ function formQuantity() {
 	}
 }
 document.querySelector("[data-fls-quantity]") && window.addEventListener("load", formQuantity);
+//#endregion
+//#region src/components/effects/lazyload/lazyload.js
+var lazySelector = "img[data-fls-lazy][data-src]";
+var loadedAttribute = "data-fls-lazy-loaded";
+function setLazySource(element, dataKey, attrName) {
+	const value = element.dataset[dataKey];
+	if (!value) return;
+	element.setAttribute(attrName, value);
+	element.removeAttribute(`data-${dataKey.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`)}`);
+}
+function loadLazyImage(image) {
+	if (image.hasAttribute(loadedAttribute)) return;
+	const picture = image.closest("picture");
+	if (picture) picture.querySelectorAll("source[data-srcset]").forEach((source) => {
+		setLazySource(source, "srcset", "srcset");
+	});
+	setLazySource(image, "srcset", "srcset");
+	setLazySource(image, "src", "src");
+	if (image.complete) {
+		markLazyImageLoaded(image);
+		return;
+	}
+	image.addEventListener("load", () => {
+		markLazyImageLoaded(image);
+	}, { once: true });
+	image.addEventListener("error", () => {
+		markLazyImageLoaded(image);
+	}, { once: true });
+}
+function markLazyImageLoaded(image) {
+	image.classList.add("_lazy-loaded");
+	image.setAttribute(loadedAttribute, "");
+}
+function initLazyLoad() {
+	const lazyImages = document.querySelectorAll(lazySelector);
+	if (!lazyImages.length) return;
+	if (!("IntersectionObserver" in window)) {
+		lazyImages.forEach(loadLazyImage);
+		return;
+	}
+	const imageObserver = new IntersectionObserver((entries, observer) => {
+		entries.forEach((entry) => {
+			if (!entry.isIntersecting) return;
+			loadLazyImage(entry.target);
+			observer.unobserve(entry.target);
+		});
+	}, {
+		rootMargin: "300px 0px",
+		threshold: .01
+	});
+	const observeLazyImages = (scope) => {
+		if (!scope) return;
+		if (scope.matches?.(lazySelector) && !scope.hasAttribute(loadedAttribute)) imageObserver.observe(scope);
+		scope.querySelectorAll?.(lazySelector).forEach((image) => {
+			if (image.hasAttribute(loadedAttribute)) return;
+			imageObserver.observe(image);
+		});
+	};
+	observeLazyImages(document);
+	new MutationObserver((mutations) => {
+		mutations.forEach((mutation) => {
+			mutation.addedNodes.forEach((node) => {
+				if (!(node instanceof HTMLElement)) return;
+				observeLazyImages(node);
+			});
+		});
+	}).observe(document.body, {
+		childList: true,
+		subtree: true
+	});
+}
+document.addEventListener("DOMContentLoaded", initLazyLoad);
 //#endregion
 //#region src/js/app.js
 addLoadedAttr();
