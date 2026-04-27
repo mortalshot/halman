@@ -10,17 +10,21 @@
 		<link rel="preload" href="./assets/fonts/Gilroy-Light.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 		<link rel="preload" href="./assets/fonts/Gilroy-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 		<link rel="shortcut icon" href="./assets/img/favicon.ico">
-		<title>Главная страница</title>
-		<script type="module" crossorigin="" src="./js/index.min.js?v=1777305998442"></script>
+		<title>Карточка товара 2</title>
+		<script type="module" crossorigin="" src="./js/single-products2.min.js?v=1777305998432"></script>
 		<link rel="modulepreload" crossorigin="" href="./js/app.min.js">
-		<link rel="stylesheet" crossorigin="" href="./css/app.min.css?v=1777305998442">
-		<link rel="stylesheet" crossorigin="" href="./css/index.min.css?v=1777305998442">
-		<link rel="stylesheet" crossorigin="" href="./css/widget-products.min.css?v=1777305998442">
-		<link rel="stylesheet" crossorigin="" href="./css/main.min.css?v=1777305998442">
+		<link rel="modulepreload" crossorigin="" href="./js/offer-club.min.js">
+		<link rel="modulepreload" crossorigin="" href="./js/copy.min.js">
+		<link rel="stylesheet" crossorigin="" href="./css/app.min.css?v=1777305998432">
+		<link rel="stylesheet" crossorigin="" href="./css/offer-club.min.css?v=1777305998432">
+		<link rel="stylesheet" crossorigin="" href="./css/copy.min.css?v=1777305998432">
+		<link rel="stylesheet" crossorigin="" href="./css/breadcrumbs.min.css?v=1777305998432">
+		<link rel="stylesheet" crossorigin="" href="./css/widget-products.min.css?v=1777305998432">
+		<link rel="stylesheet" crossorigin="" href="./css/main.min.css?v=1777305998432">
 	</head>
 	<body>
 		<div class="wrapper">
-			<header data-fls-header="" data-fls-header-scroll="" class="header header_transparent">
+			<header data-fls-header="" data-fls-header-scroll="" class="header">
 				<div class="header__container">
 					<div class="header__top">
 						<div class="logo" data-fls-logo="">
@@ -335,227 +339,630 @@
 				</div>
 			</header>
 			<main class="page">
-				<section class="hero" data-fls-hero="" aria-labelledby="hero-title">
-					<div data-fls-slider="hero" class="hero__slider swiper" style="min-height: 100svh;">
-						<div class="hero__wrapper swiper-wrapper">
-							<div class="hero__slide swiper-slide">
-								<picture class="hero__media">
-									<source srcset="./assets/img/hero/hero1.webp" media="(min-width: 767.98px)">
-									<img alt="" aria-hidden="true" loading="lazy" src="./assets/img/hero/hero1_mob.webp">
-								</picture>
-								<div class="hero__container">
-									<div class="hero__content">
-										<h1 id="hero-title" class="hero__title">Сократите время уборки вдвое с Halman</h1>
-										<div class="hero__text">
-											*По сравнению с обычными пылесосами, согласно опросу 248 пользователей, протестировавших Halman
-										</div>
-										<a href="#" class="hero__button btn btn_big btn_bg-main" data-fls-button="">Узнать больше</a>
-									</div>
-								</div>
-							</div>
-							<div class="hero__slide swiper-slide">
-								<picture class="hero__media">
-									<source srcset="./assets/img/hero/hero1.webp" media="(min-width: 767.98px)">
-									<img alt="" aria-hidden="true" loading="lazy" src="./assets/img/hero/hero1_mob.webp">
-								</picture>
-								<div class="hero__container">
-									<div class="hero__content">
-										<h2 class="hero__title">Сократите время уборки вдвое с Halman</h2>
-										<div class="hero__text">
-											*По сравнению с обычными пылесосами, согласно опросу 248 пользователей, протестировавших Halman
-										</div>
-										<a href="#" class="hero__button btn btn_big btn_bg-main" data-fls-button="">Узнать больше</a>
-									</div>
-								</div>
-							</div>
-							<div class="hero__slide swiper-slide" style="min-height: 100svh;">
-								<picture class="hero__media">
-									<source srcset="./assets/img/hero/hero1.webp" media="(min-width: 767.98px)">
-									<img alt="" aria-hidden="true" loading="lazy" src="./assets/img/hero/hero1_mob.webp">
-								</picture>
-								<div class="hero__container">
-									<div class="hero__content">
-										<h2 class="hero__title">Сократите время уборки вдвое с Halman</h2>
-										<div class="hero__text">
-											*По сравнению с обычными пылесосами, согласно опросу 248 пользователей, протестировавших Halman
-										</div>
-										<a href="#" class="hero__button btn btn_big btn_bg-main" data-fls-button="">Узнать больше</a>
-									</div>
-								</div>
-							</div>
-						</div>
+				<div class="breadcrumbs" data-fls-breadcrumbs="">
+					<div class="breadcrumbs__container">
+						<nav class="breadcrumbs__nav" aria-label="Breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+							<ul class="breadcrumbs__list">
+								<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+									<a class="breadcrumbs__link link-hover" href="index.html" itemprop="item">
+										<span itemprop="name">Главная</span>
+									</a>
+									<meta itemprop="position" content="1">
+								</li>
+								<span class="breadcrumbs__sep" aria-hidden="true">/</span>
+								<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+									<a class="breadcrumbs__link link-hover" href="archive-products.html" itemprop="item">
+										<span itemprop="name">Каталог</span>
+									</a>
+									<meta itemprop="position" content="2">
+								</li>
+								<span class="breadcrumbs__sep" aria-hidden="true">/</span>
+								<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+									<span class="breadcrumbs__current" itemprop="name" aria-current="page">Halman D700 Dream</span>
+									<meta itemprop="position" content="3">
+								</li>
+							</ul>
+						</nav>
 					</div>
-					<div class="hero__navigation slider-navigation">
-						<div class="hero__pagination slider-navigation__pagination swiper-pagination"></div>
-						<div class="hero__controls slider-navigation__arrows">
-							<button type="button" class="hero__arrow slider-navigation__arrow slider-navigation__arrow_prev swiper-button-prev animation" data-fls-iconanimation="" aria-label="Предыдущий слайд">
-								<svg class="icon animation__object" aria-hidden="true">
-									<use href="./assets/img/spritemap.svg#sprite-arrow"></use>
-								</svg>
-							</button>
-							<button type="button" class="hero__arrow slider-navigation__arrow slider-navigation__arrow_next swiper-button-next animation" data-fls-iconanimation="" aria-label="Следующий слайд">
-								<svg class="icon animation__object" aria-hidden="true">
-									<use href="./assets/img/spritemap.svg#sprite-arrow"></use>
-								</svg>
-							</button>
+				</div>
+				<section class="single-product single-product_second" data-fls-single-products="">
+					<div class="single-product__container">
+						<div class="single-product__body">
+							<div class="single-product__top">
+								<div class="single-product__gallery-block single-product__gallery-block_second" data-fls-slider-wrapper="">
+									<div class="single-product__thumbs-column">
+										<div class="single-product__thumbs-nav single-product__thumbs-nav_prev" aria-hidden="true">
+											<button type="button" class="single-product__thumbs-arrow single-product__thumbs-arrow_prev swiper-button-prev" aria-label="Предыдущие миниатюры">
+												<svg class="icon" aria-hidden="true">
+													<use href="./assets/img/spritemap.svg#sprite-chevron"></use>
+												</svg>
+											</button>
+										</div>
+										<div data-fls-slider="single-product-thumbs" class="single-product__thumbs single-product__thumbs_second swiper" aria-label="Миниатюры галереи товара">
+											<div class="single-product__thumbs-wrapper swiper-wrapper">
+												<div class="single-product__thumb swiper-slide">
+													<button type="button" class="single-product__thumb-button" aria-label="Перейти к первой фотографии товара">
+														<picture>
+															<img data-fls-lazy="" alt="" loading="lazy" data-src="./assets/img/products/product2-image1.webp">
+														</picture>
+													</button>
+												</div>
+												<div class="single-product__thumb swiper-slide">
+													<button type="button" class="single-product__thumb-button single-product__thumb-button_video" aria-label="Перейти к видео о товаре">
+														<picture>
+															<img data-fls-lazy="" alt="" loading="lazy" data-src="./assets/img/products/product2-image2.webp">
+														</picture>
+														<span class="single-product__thumb-play" aria-hidden="true">
+															<svg class="icon" aria-hidden="true">
+																<use href="./assets/img/spritemap.svg#sprite-play"></use>
+															</svg>
+														</span>
+													</button>
+												</div>
+												<div class="single-product__thumb swiper-slide">
+													<button type="button" class="single-product__thumb-button" aria-label="Перейти ко второй фотографии товара">
+														<picture>
+															<img data-fls-lazy="" alt="" loading="lazy" data-src="./assets/img/products/product2-image3.webp">
+														</picture>
+													</button>
+												</div>
+												<div class="single-product__thumb swiper-slide">
+													<button type="button" class="single-product__thumb-button" aria-label="Перейти к третьей фотографии товара">
+														<picture>
+															<img data-fls-lazy="" alt="" loading="lazy" data-src="./assets/img/products/product2-image4.webp">
+														</picture>
+													</button>
+												</div>
+												<div class="single-product__thumb swiper-slide">
+													<button type="button" class="single-product__thumb-button" aria-label="Перейти к четвертой фотографии товара">
+														<picture>
+															<img data-fls-lazy="" alt="" loading="lazy" data-src="./assets/img/products/product2-image5.webp">
+														</picture>
+													</button>
+												</div>
+												<div class="single-product__thumb swiper-slide">
+													<button type="button" class="single-product__thumb-button" aria-label="Перейти к пятой фотографии товара">
+														<picture>
+															<img data-fls-lazy="" alt="" loading="lazy" data-src="./assets/img/products/product2-image6.webp">
+														</picture>
+													</button>
+												</div>
+												<div class="single-product__thumb swiper-slide">
+													<button type="button" class="single-product__thumb-button" aria-label="Перейти к шестой фотографии товара">
+														<picture>
+															<img data-fls-lazy="" alt="" loading="lazy" data-src="./assets/img/products/product2-image7.webp">
+														</picture>
+													</button>
+												</div>
+											</div>
+										</div>
+										<div class="single-product__thumbs-nav single-product__thumbs-nav_next" aria-hidden="true">
+											<button type="button" class="single-product__thumbs-arrow single-product__thumbs-arrow_next swiper-button-next" aria-label="Следующие миниатюры">
+												<svg class="icon" aria-hidden="true">
+													<use href="./assets/img/spritemap.svg#sprite-chevron"></use>
+												</svg>
+											</button>
+										</div>
+									</div>
+									<div class="single-product__gallery-holder">
+										<div class="single-product__badge badge badge_sale">sale</div>
+										<div data-fls-slider="single-product" data-fls-gallery="" class="single-product__gallery single-product__gallery_second swiper" aria-label="Галерея товара">
+											<div class="single-product__gallery-wrapper swiper-wrapper">
+												<article class="single-product__gallery-slide single-product__gallery-slide_main swiper-slide">
+													<a class="single-product__media-card single-product__media-trigger" data-fls-gallery-item="" aria-label="Открыть фотографию товара">
+														<picture>
+															<img data-fls-lazy="" alt="Halman D700 Dream" loading="lazy" data-src="./assets/img/products/product2-image1.webp">
+														</picture>
+													</a>
+												</article>
+												<article class="single-product__gallery-slide single-product__gallery-slide_video swiper-slide">
+													<a class="single-product__media-card single-product__media-trigger" data-fls-gallery-item="" data-single-product-video="" data-video-src="/assets/video/capybara.mp4" data-video-type="video/mp4" aria-label="Открыть видео о товаре">
+														<picture>
+															<img data-fls-lazy="" alt="Halman D700 Dream крупный план" loading="lazy" data-src="./assets/img/products/product2-image2.webp">
+														</picture>
+														<span class="single-product__play" aria-hidden="true">
+															<svg class="icon" aria-hidden="true">
+																<use href="./assets/img/spritemap.svg#sprite-play"></use>
+															</svg>
+														</span>
+													</a>
+												</article>
+												<article class="single-product__gallery-slide single-product__gallery-slide_main swiper-slide">
+													<a class="single-product__media-card single-product__media-trigger" data-fls-gallery-item="" aria-label="Открыть фотографию товара">
+														<picture>
+															<img data-fls-lazy="" alt="Halman D700 Dream" loading="lazy" data-src="./assets/img/products/product2-image3.webp">
+														</picture>
+													</a>
+												</article>
+												<article class="single-product__gallery-slide single-product__gallery-slide_main swiper-slide">
+													<a class="single-product__media-card single-product__media-trigger" data-fls-gallery-item="" aria-label="Открыть фотографию товара">
+														<picture>
+															<img data-fls-lazy="" alt="Halman D700 Dream" loading="lazy" data-src="./assets/img/products/product2-image4.webp">
+														</picture>
+													</a>
+												</article>
+												<article class="single-product__gallery-slide single-product__gallery-slide_main swiper-slide">
+													<a class="single-product__media-card single-product__media-trigger" data-fls-gallery-item="" aria-label="Открыть фотографию товара">
+														<picture>
+															<img data-fls-lazy="" alt="Halman D700 Dream" loading="lazy" data-src="./assets/img/products/product2-image5.webp">
+														</picture>
+													</a>
+												</article>
+												<article class="single-product__gallery-slide single-product__gallery-slide_main swiper-slide">
+													<a class="single-product__media-card single-product__media-trigger" data-fls-gallery-item="" aria-label="Открыть фотографию товара">
+														<picture>
+															<img data-fls-lazy="" alt="Halman D700 Dream" loading="lazy" data-src="./assets/img/products/product2-image6.webp">
+														</picture>
+													</a>
+												</article>
+												<article class="single-product__gallery-slide single-product__gallery-slide_main swiper-slide">
+													<a class="single-product__media-card single-product__media-trigger" data-fls-gallery-item="" aria-label="Открыть фотографию товара">
+														<picture>
+															<img data-fls-lazy="" alt="Halman D700 Dream" loading="lazy" data-src="./assets/img/products/product2-image7.webp">
+														</picture>
+													</a>
+												</article>
+											</div>
+											<div class="single-product__gallery-nav slider-navigation__arrows" aria-label="Навигация по галерее">
+												<button type="button" class="single-product__gallery-arrow slider-navigation__arrow slider-navigation__arrow_prev swiper-button-prev animation" data-fls-iconanimation="" aria-label="Предыдущее изображение">
+													<svg class="icon animation__object" aria-hidden="true">
+														<use href="./assets/img/spritemap.svg#sprite-arrow"></use>
+													</svg>
+												</button>
+												<button type="button" class="single-product__gallery-arrow slider-navigation__arrow slider-navigation__arrow_next swiper-button-next animation" data-fls-iconanimation="" aria-label="Следующее изображение">
+													<svg class="icon animation__object" aria-hidden="true">
+														<use href="./assets/img/spritemap.svg#sprite-arrow"></use>
+													</svg>
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="single-product__sidebar">
+									<div class="single-product__sidebar-head">
+										<div class="copy-item" data-fls-copy="">
+											<button type="button" class="copy-item__button animation" title="Скопировать артикул" data-fls-iconanimation="" data-copy="ET14330">
+												Артикул:
+												<strong>ET14330</strong>
+												<svg class="icon animation__object">
+													<use href="./assets/img/spritemap.svg#sprite-copy"></use>
+												</svg>
+											</button>
+										</div>
+										<div class="single-product__lead">
+											<h1 class="single-product__title">Halman D700 Dream легкий вертикальный пылесос для повседневных задач</h1>
+											<div class="single-product__text">
+												Вычеркните уборку из вашего списка хлопот — с D700 Dream она займет считанные минуты!
+											</div>
+										</div>
+									</div>
+									<div class="single-product__purchase">
+										<div class="single-product__purchase-main">
+											<div class="single-product__availability">В наличии</div>
+											<div class="single-product__prices">
+												<span class="single-product__old-price">5 590 ₽</span>
+												<span class="single-product__price">3 290 ₽</span>
+											</div>
+										</div>
+										<button type="button" class="single-product__button btn btn_big btn_bg-main" data-fls-button="">В корзину</button>
+									</div>
+									<div class="single-product__summary">
+										<h2 class="single-product__subtitle">Характеристики</h2>
+										<div class="single-product__summary-list">
+											<div class="single-product__spec-row">
+												<span class="single-product__spec-label">Объем батареи аккумулятора:</span>
+												<span class="single-product__spec-value">проводной</span>
+											</div>
+											<div class="single-product__spec-row">
+												<span class="single-product__spec-label">Напряжение аккумулятора:</span>
+												<span class="single-product__spec-value">проводной</span>
+											</div>
+											<div class="single-product__spec-row">
+												<span class="single-product__spec-label">Длина кабеля питания:</span>
+												<span class="single-product__spec-value">6 м</span>
+											</div>
+										</div>
+										<a href="#product-specs" class="single-product__summary-link">Все характеристики</a>
+									</div>
+									<div class="single-product__service">
+										<div class="single-product__service-card single-product__service-card_static">
+											<span class="single-product__service-icon">
+												<img src="./assets/img/icons/cube.svg" alt="" loading="lazy">
+											</span>
+											<span class="single-product__service-body">
+												<span class="single-product__service-title">
+													Доставка по
+													<strong>По всей России</strong>
+												</span>
+												<span class="single-product__service-text">
+													Доставим 30.05 от
+													<span class="_nowrap">500 ₽</span>
+												</span>
+											</span>
+											<span class="single-product__service-action" tabindex="0" role="button" aria-label="Условия доставки" data-fls-tippy-content="Доставка розничных заказов осуществляется курьерскими службами СДЭК и Боксберри до указанного Вами адреса или до выбранного Вами терминала курьерской службы в Вашем городе.">
+												<svg class="icon" aria-hidden="true">
+													<use href="./assets/img/spritemap.svg#sprite-info"></use>
+												</svg>
+											</span>
+										</div>
+										<a href="#" class="single-product__service-card">
+											<span class="single-product__service-icon">
+												<img src="./assets/img/icons/phone.svg" alt="" loading="lazy">
+											</span>
+											<span class="single-product__service-body">
+												<span class="single-product__service-title">Остались вопросы?</span>
+												<span class="single-product__service-text">Закажите обратный звонок</span>
+											</span>
+											<span class="single-product__service-action">
+												<svg class="icon" aria-hidden="true">
+													<use href="./assets/img/spritemap.svg#sprite-chevron"></use>
+												</svg>
+											</span>
+										</a>
+									</div>
+								</div>
+							</div>
+							<div id="product-specs" class="single-product__specs">
+								<h2 class="single-product__subtitle">Характеристики товара</h2>
+								<div class="single-product__spec-list">
+									<div class="single-product__spec-row">
+										<span class="single-product__spec-label">Объем батареи аккумулятора:</span>
+										<span class="single-product__spec-value">проводной</span>
+									</div>
+									<div class="single-product__spec-row">
+										<span class="single-product__spec-label">Напряжение аккумулятора:</span>
+										<span class="single-product__spec-value">проводной</span>
+									</div>
+									<div class="single-product__spec-row">
+										<span class="single-product__spec-label">Длина кабеля питания:</span>
+										<span class="single-product__spec-value">6 м</span>
+									</div>
+									<div class="single-product__spec-row">
+										<span class="single-product__spec-label">Сила всасывания:</span>
+										<span class="single-product__spec-value">22 000 Па</span>
+									</div>
+									<div class="single-product__spec-row">
+										<span class="single-product__spec-label">Время работы, макс:</span>
+										<span class="single-product__spec-value">нет</span>
+									</div>
+									<div class="single-product__spec-row">
+										<span class="single-product__spec-label">Время работы в турборежиме:</span>
+										<span class="single-product__spec-value">нет</span>
+									</div>
+									<div class="single-product__spec-row">
+										<span class="single-product__spec-label">Объем контейнера:</span>
+										<span class="single-product__spec-value">0,55 л</span>
+									</div>
+									<div class="single-product__spec-row">
+										<span class="single-product__spec-label">Количество режимов:</span>
+										<span class="single-product__spec-value">1</span>
+									</div>
+									<div class="single-product__spec-row">
+										<span class="single-product__spec-label">Возможность снять аккумуляторную батарею:</span>
+										<span class="single-product__spec-value">нет</span>
+									</div>
+									<div class="single-product__spec-row">
+										<span class="single-product__spec-label">Время зарядки:</span>
+										<span class="single-product__spec-value">проводной</span>
+									</div>
+									<div class="single-product__spec-row">
+										<span class="single-product__spec-label">Тип трубы:</span>
+										<span class="single-product__spec-value">цельная</span>
+									</div>
+									<div class="single-product__spec-row">
+										<span class="single-product__spec-label">Материал трубы:</span>
+										<span class="single-product__spec-value">пластиковая</span>
+									</div>
+									<div class="single-product__spec-row">
+										<span class="single-product__spec-label">Высота, ширина, глубина устройства:</span>
+										<span class="single-product__spec-value">1000×130×100 мм</span>
+									</div>
+									<div class="single-product__spec-row">
+										<span class="single-product__spec-label">Вес потребительской коробки:</span>
+										<span class="single-product__spec-value">2,3 кг</span>
+									</div>
+									<div class="single-product__spec-row">
+										<span class="single-product__spec-label">Размеры потребительской коробки:</span>
+										<span class="single-product__spec-value">51,5×18,5×21,5 см</span>
+									</div>
+								</div>
+							</div>
+							<div class="single-product__bottom">
+								<div class="single-product__description">
+									<h2 class="single-product__subtitle">Описание</h2>
+									<div data-fls-showmore="items" data-fls-showmore-media="767.98,max" class="single-product__showmore">
+										<div data-fls-showmore-content="1" class="single-product__copy _content">
+											<p>
+												Вертикальный пылесос Halman D700 Dream — это сочетание мощности, легкости и комфорта для ежедневной уборки. Благодаря продуманной конструкции и малому весу, он делает процесс уборки быстрым и практически незаметным — словно во сне.
+											</p>
+											<p>
+												Мощность устройства до 750 Вт обеспечивает эффективное удаление пыли и загрязнений с любых поверхностей — от твердых полов до ковровых покрытий. Современная система фильтрации Cyclone MAX в сочетании с HEPA-фильтром задерживает мельчайшие частицы пыли, обеспечивая чистый и безопасный воздух в помещении.
+											</p>
+											<p>
+												Универсальная щетка и насадки позволяют легко справляться с уборкой мебели, текстиля и труднодоступных мест. Маневренная конструкция и компактные размеры делают пылесос удобным в хранении и использовании даже в небольших пространствах.
+											</p>
+											<p>
+												<strong>
+													Halman D700 Dream — это надежное решение для тех, кто ценит чистоту без лишних усилий.
+												</strong>
+											</p>
+										</div>
+										<button hidden data-fls-showmore-button="" type="button" class="single-product__showmore-button">
+											<span>Показать полностью</span>
+											<span>Скрыть</span>
+										</button>
+									</div>
+								</div>
+								<div class="single-product__videos" data-fls-gallery="" aria-label="Галерея видео о товаре">
+									<a href="https://www.youtube.com/watch?v=M7lc1UVf-VE" class="single-product__video-card" data-fls-gallery-item="" aria-label="Смотреть видео о товаре">
+										<picture>
+											<img data-fls-lazy="" alt="" loading="lazy" data-src="./assets/img/products/product2-image2.webp">
+										</picture>
+										<span class="single-product__play" aria-hidden="true">
+											<svg class="icon" aria-hidden="true">
+												<use href="./assets/img/spritemap.svg#sprite-play"></use>
+											</svg>
+										</span>
+									</a>
+									<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="single-product__video-card" data-fls-gallery-item="" aria-label="Смотреть обзор товара">
+										<picture>
+											<img data-fls-lazy="" alt="" loading="lazy" data-src="./assets/img/products/product1-image1.webp">
+										</picture>
+										<span class="single-product__play" aria-hidden="true">
+											<svg class="icon" aria-hidden="true">
+												<use href="./assets/img/spritemap.svg#sprite-play"></use>
+											</svg>
+										</span>
+									</a>
+								</div>
+							</div>
 						</div>
 					</div>
 				</section>
-				<section class="widget-categories" data-fls-widget-categories="" data-fls-slider-wrapper="" aria-labelledby="widget-categories-title">
-					<div class="widget-categories__container">
-						<div class="widget-categories__head _heading">
-							<h2 id="widget-categories-title" class="widget-categories__title">Каталог товаров</h2>
-							<div class="widget-categories__navigation slider-navigation">
-								<div class="widget-categories__controls slider-navigation__arrows">
-									<button type="button" class="widget-categories__arrow slider-navigation__arrow slider-navigation__arrow_prev swiper-button-prev animation" data-fls-iconanimation="" aria-label="Предыдущий слайд">
+				<section class="single-product-benefits" data-fls-single-product-benefits="" aria-labelledby="single-product-benefits-title">
+					<div class="single-product-benefits__container">
+						<div class="single-product-benefits__body">
+							<h2 id="single-product-benefits-title" class="single-product-benefits__title">Halman D700 Dream</h2>
+							<div class="single-product-benefits__items">
+								<article class="single-product-benefits__item">
+									<div class="single-product-benefits__image">
+										<picture>
+											<img data-fls-lazy="" alt="Эффективен против шерсти и мелкодисперсного мусора" loading="lazy" data-src="./assets/img/products/product2-image2.webp">
+										</picture>
+									</div>
+									<div class="single-product-benefits__content">
+										<div class="single-product-benefits__text">Эффективен против шерсти, мелкодисперсного мусора</div>
+										<div class="single-product-benefits__accent">Мощность всасывания 22 000 Па</div>
+									</div>
+								</article>
+								<article class="single-product-benefits__item">
+									<div class="single-product-benefits__image">
+										<picture>
+											<img data-fls-lazy="" alt="Подходит для сухой и влажной уборки" loading="lazy" data-src="./assets/img/products/product2-image3.webp">
+										</picture>
+									</div>
+									<div class="single-product-benefits__content">
+										<div class="single-product-benefits__text">Подходит для сухой и влажной уборки</div>
+										<div class="single-product-benefits__accent">В комплекте насадка для влажной уборки</div>
+									</div>
+								</article>
+								<article class="single-product-benefits__item">
+									<div class="single-product-benefits__image">
+										<picture>
+											<img data-fls-lazy="" alt="Очищает воздух от пыли" loading="lazy" data-src="./assets/img/products/product2-image4.webp">
+										</picture>
+									</div>
+									<div class="single-product-benefits__content">
+										<div class="single-product-benefits__text">Очищает воздух от пыли</div>
+										<div class="single-product-benefits__accent">HEPA-фильтр и механический фильтр-сетка</div>
+									</div>
+								</article>
+								<article class="single-product-benefits__item">
+									<div class="single-product-benefits__image">
+										<picture>
+											<img data-fls-lazy="" alt="Подходит для уборки труднодоступных мест" loading="lazy" data-src="./assets/img/products/product2-image5.webp">
+										</picture>
+									</div>
+									<div class="single-product-benefits__content">
+										<div class="single-product-benefits__text">Подходит для уборки труднодоступных мест</div>
+										<div class="single-product-benefits__accent">В комплекте щелевая насадка 2 в 1</div>
+									</div>
+								</article>
+								<article class="single-product-benefits__item">
+									<div class="single-product-benefits__image">
+										<picture>
+											<img data-fls-lazy="" alt="Дотянется до каждого уголка" loading="lazy" data-src="./assets/img/products/product2-image6.webp">
+										</picture>
+									</div>
+									<div class="single-product-benefits__content">
+										<div class="single-product-benefits__text">Дотянется до каждого уголка</div>
+										<div class="single-product-benefits__accent">Радиус действия 7,5 м</div>
+									</div>
+								</article>
+								<article class="single-product-benefits__item">
+									<div class="single-product-benefits__image">
+										<picture>
+											<img data-fls-lazy="" alt="Удобно хранить" loading="lazy" data-src="./assets/img/products/product2-image7.webp">
+										</picture>
+									</div>
+									<div class="single-product-benefits__content">
+										<div class="single-product-benefits__text">Удобно хранить</div>
+										<div class="single-product-benefits__accent">Настенный держатель на липучке</div>
+									</div>
+								</article>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="offer-club" data-fls-offer-club="" data-fls-slider-wrapper="" aria-labelledby="offer-club-title">
+					<div class="offer-club__container">
+						<div class="offer-club__body">
+							<div data-fls-slider="offer-club" class="offer-club__slider swiper" aria-label="Слайды клуба Halman">
+								<div class="offer-club__wrapper swiper-wrapper">
+									<div class="offer-club__slide swiper-slide">
+										<div class="offer-club__banner">
+											<div class="offer-club__content">
+												<h2 id="offer-club-title" class="offer-club__title">
+													<strong>Вступайте в клуб Halman</strong>
+													<br>
+													и забирайте промокод
+													<br>
+													на
+													<strong>скидку 10%</strong>
+													при покупке
+													<br>
+													на сайте
+												</h2>
+												<form action="#" method="post" class="offer-club__form">
+													<label class="offer-club__field">
+														<input data-fls-input="" autocomplete="off" type="email" name="email" placeholder="Ваш email" class="offer-club__input input">
+													</label>
+													<button type="submit" class="offer-club__submit btn btn_bg-main" data-fls-button="">
+														<span>Получить промокод</span>
+														<svg class="icon" aria-hidden="true">
+															<use href="./assets/img/spritemap.svg#sprite-send"></use>
+														</svg>
+													</button>
+												</form>
+											</div>
+											<div class="offer-club__media">
+												<div class="offer-club__image">
+													<picture>
+														<source media="(max-width: 600px)" data-srcset="./assets/img/offer/offer1-600.webp" type="image/webp">
+														<img data-fls-lazy="" alt="Техника Halman" loading="lazy" data-src="./assets/img/offer/offer1.webp">
+													</picture>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="offer-club__slide swiper-slide">
+										<div class="offer-club__banner">
+											<div class="offer-club__content">
+												<h2 class="offer-club__title">
+													Вступайте в клуб Halman
+													<br>
+													и забирайте промокод
+													<br>
+													на скидку 10% при покупке
+													<br>
+													на сайте
+												</h2>
+												<div class="offer-club__lead">
+													<div class="offer-club__text">
+														Смотрите обзор техники Halman, узнавайте о возможностях моделей и выбирайте решение под свои задачи.
+													</div>
+													<a href="#" class="offer-club__button btn btn_big btn_bg-main" data-fls-button="">
+														<span>Смотреть обзор</span>
+													</a>
+												</div>
+											</div>
+											<div class="offer-club__media">
+												<div data-fls-gallery="" class="offer-club__video-gallery">
+													<a href="https://www.youtube.com/watch?v=M7lc1UVf-VE" class="offer-club__image offer-club__image_video" data-fls-gallery-item="" aria-label="Открыть видео о клубе Halman">
+														<picture>
+															<source media="(max-width: 600px)" data-srcset="./assets/img/offer/offer1-600.webp" type="image/webp">
+															<img data-fls-lazy="" alt="Видео о клубе Halman" loading="lazy" data-src="./assets/img/offer/offer1.webp">
+														</picture>
+														<span class="offer-club__play" aria-hidden="true">
+															<svg class="icon" aria-hidden="true">
+																<use href="./assets/img/spritemap.svg#sprite-play"></use>
+															</svg>
+														</span>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="offer-club__slide swiper-slide">
+										<div class="offer-club__banner">
+											<div class="offer-club__content">
+												<h2 class="offer-club__title">
+													Вступайте в клуб Halman
+													<br>
+													и забирайте промокод
+													<br>
+													на скидку 10% при покупке
+													<br>
+													на сайте
+												</h2>
+												<form action="#" method="post" class="offer-club__form">
+													<label class="offer-club__field">
+														<input data-fls-input="" autocomplete="off" type="email" name="email" placeholder="Ваш email" class="offer-club__input input">
+													</label>
+													<button type="submit" class="offer-club__submit btn btn_bg-main" data-fls-button="">
+														<span>Получить промокод</span>
+														<svg class="icon" aria-hidden="true">
+															<use href="./assets/img/spritemap.svg#sprite-send"></use>
+														</svg>
+													</button>
+												</form>
+											</div>
+											<div class="offer-club__media">
+												<div class="offer-club__image">
+													<picture>
+														<source media="(max-width: 600px)" data-srcset="./assets/img/offer/offer1-600.webp" type="image/webp">
+														<img data-fls-lazy="" alt="Техника Halman" loading="lazy" data-src="./assets/img/offer/offer1.webp">
+													</picture>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="offer-club__slide swiper-slide">
+										<div class="offer-club__banner">
+											<div class="offer-club__content">
+												<h2 class="offer-club__title">
+													Вступайте в клуб Halman
+													<br>
+													и забирайте промокод
+													<br>
+													на скидку 10% при покупке
+													<br>
+													на сайте
+												</h2>
+												<form action="#" method="post" class="offer-club__form">
+													<label class="offer-club__field">
+														<input data-fls-input="" autocomplete="off" type="email" name="email" placeholder="Ваш email" class="offer-club__input input">
+													</label>
+													<button type="submit" class="offer-club__submit btn btn_bg-main" data-fls-button="">
+														<span>Получить промокод</span>
+														<svg class="icon" aria-hidden="true">
+															<use href="./assets/img/spritemap.svg#sprite-send"></use>
+														</svg>
+													</button>
+												</form>
+											</div>
+											<div class="offer-club__media">
+												<div class="offer-club__image">
+													<picture>
+														<source media="(max-width: 600px)" data-srcset="./assets/img/offer/offer1-600.webp" type="image/webp">
+														<img data-fls-lazy="" alt="Техника Halman" loading="lazy" data-src="./assets/img/offer/offer1.webp">
+													</picture>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="offer-club__navigation slider-navigation__arrows">
+									<button type="button" class="offer-club__arrow slider-navigation__arrow slider-navigation__arrow_prev swiper-button-prev animation" data-fls-iconanimation="" aria-label="Предыдущий слайд">
 										<svg class="icon animation__object" aria-hidden="true">
 											<use href="./assets/img/spritemap.svg#sprite-arrow"></use>
 										</svg>
 									</button>
-									<button type="button" class="widget-categories__arrow slider-navigation__arrow slider-navigation__arrow_next swiper-button-next animation" data-fls-iconanimation="" aria-label="Следующий слайд">
+									<button type="button" class="offer-club__arrow slider-navigation__arrow slider-navigation__arrow_next swiper-button-next animation" data-fls-iconanimation="" aria-label="Следующий слайд">
 										<svg class="icon animation__object" aria-hidden="true">
 											<use href="./assets/img/spritemap.svg#sprite-arrow"></use>
 										</svg>
 									</button>
 								</div>
 							</div>
-						</div>
-						<div data-fls-slider="categories" class="widget-categories__slider swiper">
-							<div class="widget-categories__wrapper swiper-wrapper">
-								<a href="#" class="widget-categories__slide swiper-slide" aria-label="Пылесосы, товаров: 6">
-									<span class="widget-categories__image">
-										<picture>
-											<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/category1.webp">
-										</picture>
-										<span class="widget-categories__link-icon">
-											<svg class="icon" aria-hidden="true">
-												<use href="./assets/img/spritemap.svg#sprite-link-arrow"></use>
-											</svg>
-										</span>
-									</span>
-									<span class="widget-categories__name">Пылесосы</span>
-									<span class="widget-categories__count">6</span>
-								</a>
-								<a href="#" class="widget-categories__slide swiper-slide" aria-label="Вакууматоры, товаров: 4">
-									<span class="widget-categories__image">
-										<picture>
-											<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/category2.webp">
-										</picture>
-										<span class="widget-categories__link-icon">
-											<svg class="icon" aria-hidden="true">
-												<use href="./assets/img/spritemap.svg#sprite-link-arrow"></use>
-											</svg>
-										</span>
-									</span>
-									<span class="widget-categories__name">Вакууматоры</span>
-									<span class="widget-categories__count">4</span>
-								</a>
-								<a href="#" class="widget-categories__slide swiper-slide" aria-label="Аэрогрили, товаров: 4">
-									<span class="widget-categories__image">
-										<picture>
-											<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/category3.webp">
-										</picture>
-										<span class="widget-categories__link-icon">
-											<svg class="icon" aria-hidden="true">
-												<use href="./assets/img/spritemap.svg#sprite-link-arrow"></use>
-											</svg>
-										</span>
-									</span>
-									<span class="widget-categories__name">Аэрогрили</span>
-									<span class="widget-categories__count">4</span>
-								</a>
-								<a href="#" class="widget-categories__slide swiper-slide" aria-label="Пароочистители, товаров: 2">
-									<span class="widget-categories__image">
-										<picture>
-											<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/category4.webp">
-										</picture>
-										<span class="widget-categories__link-icon">
-											<svg class="icon" aria-hidden="true">
-												<use href="./assets/img/spritemap.svg#sprite-link-arrow"></use>
-											</svg>
-										</span>
-									</span>
-									<span class="widget-categories__name">Пароочистители</span>
-									<span class="widget-categories__count">2</span>
-								</a>
-								<a href="#" class="widget-categories__slide swiper-slide" aria-label="Пылесосы, товаров: 6">
-									<span class="widget-categories__image">
-										<picture>
-											<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/category1.webp">
-										</picture>
-										<span class="widget-categories__link-icon">
-											<svg class="icon" aria-hidden="true">
-												<use href="./assets/img/spritemap.svg#sprite-link-arrow"></use>
-											</svg>
-										</span>
-									</span>
-									<span class="widget-categories__name">Пылесосы</span>
-									<span class="widget-categories__count">6</span>
-								</a>
-								<a href="#" class="widget-categories__slide swiper-slide" aria-label="Вакууматоры, товаров: 4">
-									<span class="widget-categories__image">
-										<picture>
-											<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/category2.webp">
-										</picture>
-										<span class="widget-categories__link-icon">
-											<svg class="icon" aria-hidden="true">
-												<use href="./assets/img/spritemap.svg#sprite-link-arrow"></use>
-											</svg>
-										</span>
-									</span>
-									<span class="widget-categories__name">Вакууматоры</span>
-									<span class="widget-categories__count">4</span>
-								</a>
-								<a href="#" class="widget-categories__slide swiper-slide" aria-label="Аэрогрили, товаров: 4">
-									<span class="widget-categories__image">
-										<picture>
-											<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/category3.webp">
-										</picture>
-										<span class="widget-categories__link-icon">
-											<svg class="icon" aria-hidden="true">
-												<use href="./assets/img/spritemap.svg#sprite-link-arrow"></use>
-											</svg>
-										</span>
-									</span>
-									<span class="widget-categories__name">Аэрогрили</span>
-									<span class="widget-categories__count">4</span>
-								</a>
-								<a href="#" class="widget-categories__slide swiper-slide" aria-label="Пароочистители, товаров: 2">
-									<span class="widget-categories__image">
-										<picture>
-											<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/category4.webp">
-										</picture>
-										<span class="widget-categories__link-icon">
-											<svg class="icon" aria-hidden="true">
-												<use href="./assets/img/spritemap.svg#sprite-link-arrow"></use>
-											</svg>
-										</span>
-									</span>
-									<span class="widget-categories__name">Пароочистители</span>
-									<span class="widget-categories__count">2</span>
-								</a>
-								<a href="#" class="widget-categories__slide swiper-slide" aria-label="Пылесосы, товаров: 6">
-									<span class="widget-categories__image">
-										<picture>
-											<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/category1.webp">
-										</picture>
-										<span class="widget-categories__link-icon">
-											<svg class="icon" aria-hidden="true">
-												<use href="./assets/img/spritemap.svg#sprite-link-arrow"></use>
-											</svg>
-										</span>
-									</span>
-									<span class="widget-categories__name">Пылесосы</span>
-									<span class="widget-categories__count">6</span>
-								</a>
-							</div>
+							<div class="offer-club__pagination slider-navigation__pagination swiper-pagination"></div>
 						</div>
 					</div>
 				</section>
 				<section class="widget-products" data-fls-widget-products="" data-fls-slider-wrapper="" aria-labelledby="widget-products-title">
 					<div class="widget-products__container">
 						<div class="widget-products__head _heading">
-							<h2 id="widget-products-title" class="widget-products__title">Новинки</h2>
+							<h2 id="widget-products-title" class="widget-products__title">Похожие товары</h2>
 							<div class="widget-products__navigation slider-navigation">
 								<div class="widget-products__controls slider-navigation__arrows">
 									<button type="button" class="widget-products__arrow slider-navigation__arrow slider-navigation__arrow_prev swiper-button-prev animation" data-fls-iconanimation="" aria-label="Предыдущий слайд">
@@ -745,125 +1152,6 @@
 								</article>
 							</div>
 						</div>
-					</div>
-				</section>
-				<section class="widget-sales" data-fls-widget-sales="" data-fls-slider-wrapper="" aria-labelledby="widget-sales-title">
-					<div class="widget-sales__container">
-						<h2 id="widget-sales-title" class="widget-sales__title _heading">Хиты продаж</h2>
-						<div data-fls-slider="sales" class="widget-sales__slider swiper">
-							<div class="widget-sales__wrapper swiper-wrapper">
-								<div class="widget-sales__slide swiper-slide">
-									<article class="widget-sales__card" aria-labelledby="widget-sales-product-1-title">
-										<div class="widget-sales__media">
-											<a href="single-products.html" class="widget-sales__image" aria-label="Открыть товар: Halman D700 Dream">
-												<picture>
-													<source media="(max-width: 600px)" data-srcset="./assets/img/products/image1-600.webp" type="image/webp">
-													<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/image1.webp">
-												</picture>
-											</a>
-											<button type="button" class="widget-sales__image-button btn btn_bg-main" data-fls-button="" aria-label="Добавить в корзину: Halman D700 Dream">В корзину</button>
-										</div>
-										<div class="widget-sales__body">
-											<h3 id="widget-sales-product-1-title" class="widget-sales__name">
-												<a href="single-products.html" class="widget-sales__name-link">Halman D700 Dream</a>
-											</h3>
-											<ul class="widget-sales__features">
-												<li>Возможность всасывания 22 000 Па</li>
-												<li>HEPA-фильтр и металлический фильтр-сетка проводной</li>
-												<li>
-													В комплекте удлинительная труба, всасывающая насадка и насадка для влажной уборки
-												</li>
-												<li>Настенный держатель на липучке</li>
-											</ul>
-											<div class="widget-sales__mobile-buy">
-												<div class="widget-sales__price">13 990 ₽</div>
-												<button type="button" class="widget-sales__button btn btn_bg-main" data-fls-button="" aria-label="Добавить в корзину: Halman D700 Dream">В корзину</button>
-											</div>
-										</div>
-									</article>
-								</div>
-								<div class="widget-sales__slide swiper-slide">
-									<article class="widget-sales__card" aria-labelledby="widget-sales-product-2-title">
-										<div class="widget-sales__media">
-											<a href="single-products.html" class="widget-sales__image widget-sales__image_dark" aria-label="Открыть товар: Halman D700 Dream">
-												<picture>
-													<source media="(max-width: 600px)" data-srcset="./assets/img/products/image2-600.webp" type="image/webp">
-													<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/image2.webp">
-												</picture>
-											</a>
-											<button type="button" class="widget-sales__image-button btn btn_bg-white" data-fls-button="" aria-label="Добавить в корзину: Halman D700 Dream">В корзину</button>
-										</div>
-										<div class="widget-sales__body">
-											<h3 id="widget-sales-product-2-title" class="widget-sales__name">
-												<a href="single-products.html" class="widget-sales__name-link">Halman D700 Dream</a>
-											</h3>
-											<ul class="widget-sales__features">
-												<li>Возможность всасывания 14 000 Па</li>
-												<li>HEPA-фильтр и металлический фильтр-сетка проводной</li>
-												<li>
-													В комплекте удлинительная труба, всасывающая насадка и насадка для влажной уборки, адаптер питания
-												</li>
-												<li>Настенный держатель на липучке</li>
-											</ul>
-											<div class="widget-sales__mobile-buy">
-												<div class="widget-sales__price">13 990 ₽</div>
-												<button type="button" class="widget-sales__button btn btn_bg-main" data-fls-button="" aria-label="Добавить в корзину: Halman D700 Dream">В корзину</button>
-											</div>
-										</div>
-									</article>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-				<section class="customer-care" data-fls-customer-care="" aria-labelledby="customer-care-title">
-					<div class="customer-care__container">
-						<div class="customer-care__head _heading">
-							<h2 id="customer-care-title" class="customer-care__title">Забота о клиентах Halman</h2>
-							<div class="customer-care__subtitle">гарантия и сервис</div>
-						</div>
-						<ul class="customer-care__items">
-							<li class="customer-care__item">
-								<div class="customer-care__icon" aria-hidden="true">
-									<img data-fls-lazy="" data-src="assets/img/icons/icon1.svg" alt="" loading="lazy">
-								</div>
-								<p class="customer-care__text">
-									<strong>Гарантийное обслуживание</strong>
-									выполняют мастера авторизованных сервисных центров Halman
-								</p>
-							</li>
-							<li class="customer-care__item">
-								<div class="customer-care__icon" aria-hidden="true">
-									<img data-fls-lazy="" data-src="assets/img/icons/icons2.svg" alt="" loading="lazy">
-								</div>
-								<p class="customer-care__text">
-									На все продукты Halman действует
-									<strong>гарантия 2 года с момента покупки</strong>
-								</p>
-							</li>
-							<li class="customer-care__item">
-								<div class="customer-care__icon" aria-hidden="true">
-									<img data-fls-lazy="" data-src="assets/img/icons/icon3.svg" alt="" loading="lazy">
-								</div>
-								<p class="customer-care__text">
-									Вопросы по технике?
-									<br>
-									<strong>Свяжитесь со службой заботы о клиентах Halman</strong>
-									<a href="mailto:service@halman.ru" class="link-underline">
-										<strong>service@halman.ru</strong>
-									</a>
-								</p>
-							</li>
-							<li class="customer-care__item">
-								<div class="customer-care__icon" aria-hidden="true">
-									<img data-fls-lazy="" data-src="assets/img/icons/icons4.svg" alt="" loading="lazy">
-								</div>
-								<p class="customer-care__text">
-									Дополнительные 6 месяцев гарантии
-									<strong>при покупке через сайт</strong>
-								</p>
-							</li>
-						</ul>
 					</div>
 				</section>
 			</main>

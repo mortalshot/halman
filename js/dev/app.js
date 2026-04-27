@@ -29,6 +29,133 @@
 	}
 })();
 //#endregion
+//#region src/js/common/functions.js
+function addLoadedAttr() {
+	if (!document.documentElement.hasAttribute("data-fls-preloader-loading")) window.addEventListener("load", function() {
+		setTimeout(function() {
+			document.documentElement.setAttribute("data-fls-loaded", "");
+		}, 0);
+	});
+}
+var slideUp = (target, duration = 500, showmore = 0) => {
+	if (!target.classList.contains("--slide")) {
+		target.classList.add("--slide");
+		target.style.transitionProperty = "height, margin, padding";
+		target.style.transitionDuration = duration + "ms";
+		target.style.height = `${target.offsetHeight}px`;
+		target.offsetHeight;
+		target.style.overflow = "hidden";
+		target.style.height = showmore ? `${showmore}px` : `0px`;
+		target.style.paddingTop = 0;
+		target.style.paddingBottom = 0;
+		target.style.marginTop = 0;
+		target.style.marginBottom = 0;
+		window.setTimeout(() => {
+			target.hidden = !showmore ? true : false;
+			!showmore && target.style.removeProperty("height");
+			target.style.removeProperty("padding-top");
+			target.style.removeProperty("padding-bottom");
+			target.style.removeProperty("margin-top");
+			target.style.removeProperty("margin-bottom");
+			!showmore && target.style.removeProperty("overflow");
+			target.style.removeProperty("transition-duration");
+			target.style.removeProperty("transition-property");
+			target.classList.remove("--slide");
+			document.dispatchEvent(new CustomEvent("slideUpDone", { detail: { target } }));
+		}, duration);
+	}
+};
+var slideDown = (target, duration = 500, showmore = 0) => {
+	if (!target.classList.contains("--slide")) {
+		target.classList.add("--slide");
+		target.hidden = target.hidden ? false : null;
+		showmore && target.style.removeProperty("height");
+		let height = target.offsetHeight;
+		target.style.overflow = "hidden";
+		target.style.height = showmore ? `${showmore}px` : `0px`;
+		target.style.paddingTop = 0;
+		target.style.paddingBottom = 0;
+		target.style.marginTop = 0;
+		target.style.marginBottom = 0;
+		target.offsetHeight;
+		target.style.transitionProperty = "height, margin, padding";
+		target.style.transitionDuration = duration + "ms";
+		target.style.height = height + "px";
+		target.style.removeProperty("padding-top");
+		target.style.removeProperty("padding-bottom");
+		target.style.removeProperty("margin-top");
+		target.style.removeProperty("margin-bottom");
+		window.setTimeout(() => {
+			target.style.removeProperty("height");
+			target.style.removeProperty("overflow");
+			target.style.removeProperty("transition-duration");
+			target.style.removeProperty("transition-property");
+			target.classList.remove("--slide");
+			document.dispatchEvent(new CustomEvent("slideDownDone", { detail: { target } }));
+		}, duration);
+	}
+};
+var slideToggle = (target, duration = 500) => {
+	if (target.hidden) return slideDown(target, duration);
+	else return slideUp(target, duration);
+};
+var bodyLockStatus = true;
+var bodyLockToggle = (delay = 500) => {
+	if (document.documentElement.hasAttribute("data-fls-scrolllock")) bodyUnlock(delay);
+	else bodyLock(delay);
+};
+var bodyUnlock = (delay = 500) => {
+	if (bodyLockStatus) {
+		const lockPaddingElements = document.querySelectorAll("[data-fls-lp]");
+		setTimeout(() => {
+			lockPaddingElements.forEach((lockPaddingElement) => {
+				lockPaddingElement.style.paddingRight = "";
+			});
+			document.body.style.paddingRight = "";
+			document.documentElement.removeAttribute("data-fls-scrolllock");
+		}, delay);
+		bodyLockStatus = false;
+		setTimeout(function() {
+			bodyLockStatus = true;
+		}, delay);
+	}
+};
+var bodyLock = (delay = 500) => {
+	if (bodyLockStatus) {
+		const lockPaddingElements = document.querySelectorAll("[data-fls-lp]");
+		const lockPaddingValue = window.innerWidth - document.body.offsetWidth + "px";
+		lockPaddingElements.forEach((lockPaddingElement) => {
+			lockPaddingElement.style.paddingRight = lockPaddingValue;
+		});
+		document.body.style.paddingRight = lockPaddingValue;
+		document.documentElement.setAttribute("data-fls-scrolllock", "");
+		bodyLockStatus = false;
+		setTimeout(function() {
+			bodyLockStatus = true;
+		}, delay);
+	}
+};
+function dataMediaQueries(array, dataSetValue) {
+	const media = Array.from(array).filter((item) => item.dataset[dataSetValue]).map((item) => {
+		const [value, type = "max"] = item.dataset[dataSetValue].split(",");
+		return {
+			value,
+			type,
+			item
+		};
+	});
+	if (media.length === 0) return [];
+	const breakpointsArray = media.map(({ value, type }) => `(${type}-width: ${value}px),${value},${type}`);
+	return [...new Set(breakpointsArray)].map((query) => {
+		const [mediaQuery, mediaBreakpoint, mediaType] = query.split(",");
+		const matchMedia = window.matchMedia(mediaQuery);
+		return {
+			itemsArray: media.filter((item) => item.value === mediaBreakpoint && item.type === mediaType),
+			matchMedia
+		};
+	});
+}
+//#endregion
 //#region node_modules/swiper/shared/ssr-window.esm.mjs
 /**
 * SSR Window 5.0.1
@@ -4165,6 +4292,168 @@ function Autoplay({ swiper, extendParams, on, emit, params }) {
 	});
 }
 //#endregion
+//#region node_modules/swiper/modules/thumbs.mjs
+function Thumb({ swiper, extendParams, on }) {
+	extendParams({ thumbs: {
+		swiper: null,
+		multipleActiveThumbs: true,
+		autoScrollOffset: 0,
+		slideThumbActiveClass: "swiper-slide-thumb-active",
+		thumbsContainerClass: "swiper-thumbs"
+	} });
+	let initialized = false;
+	let swiperCreated = false;
+	swiper.thumbs = { swiper: null };
+	function isVirtualEnabled() {
+		const thumbsSwiper = swiper.thumbs.swiper;
+		if (!thumbsSwiper || thumbsSwiper.destroyed) return false;
+		return thumbsSwiper.params.virtual && thumbsSwiper.params.virtual.enabled;
+	}
+	function onThumbClick() {
+		const thumbsSwiper = swiper.thumbs.swiper;
+		if (!thumbsSwiper || thumbsSwiper.destroyed) return;
+		const clickedIndex = thumbsSwiper.clickedIndex;
+		const clickedSlide = thumbsSwiper.clickedSlide;
+		if (clickedSlide && clickedSlide.classList.contains(swiper.params.thumbs.slideThumbActiveClass)) return;
+		if (typeof clickedIndex === "undefined" || clickedIndex === null) return;
+		let slideToIndex;
+		if (thumbsSwiper.params.loop) slideToIndex = parseInt(thumbsSwiper.clickedSlide.getAttribute("data-swiper-slide-index"), 10);
+		else slideToIndex = clickedIndex;
+		if (swiper.params.loop) swiper.slideToLoop(slideToIndex);
+		else swiper.slideTo(slideToIndex);
+	}
+	function init() {
+		const { thumbs: thumbsParams } = swiper.params;
+		if (initialized) return false;
+		initialized = true;
+		const SwiperClass = swiper.constructor;
+		if (thumbsParams.swiper instanceof SwiperClass) {
+			if (thumbsParams.swiper.destroyed) {
+				initialized = false;
+				return false;
+			}
+			swiper.thumbs.swiper = thumbsParams.swiper;
+			Object.assign(swiper.thumbs.swiper.originalParams, {
+				watchSlidesProgress: true,
+				slideToClickedSlide: false
+			});
+			Object.assign(swiper.thumbs.swiper.params, {
+				watchSlidesProgress: true,
+				slideToClickedSlide: false
+			});
+			swiper.thumbs.swiper.update();
+		} else if (isObject(thumbsParams.swiper)) {
+			const thumbsSwiperParams = Object.assign({}, thumbsParams.swiper);
+			Object.assign(thumbsSwiperParams, {
+				watchSlidesProgress: true,
+				slideToClickedSlide: false
+			});
+			swiper.thumbs.swiper = new SwiperClass(thumbsSwiperParams);
+			swiperCreated = true;
+		}
+		swiper.thumbs.swiper.el.classList.add(swiper.params.thumbs.thumbsContainerClass);
+		swiper.thumbs.swiper.on("tap", onThumbClick);
+		if (isVirtualEnabled()) swiper.thumbs.swiper.on("virtualUpdate", () => {
+			update(false, { autoScroll: false });
+		});
+		return true;
+	}
+	function update(initial, p) {
+		const thumbsSwiper = swiper.thumbs.swiper;
+		if (!thumbsSwiper || thumbsSwiper.destroyed) return;
+		let thumbsToActivate = 1;
+		const thumbActiveClass = swiper.params.thumbs.slideThumbActiveClass;
+		if (swiper.params.slidesPerView > 1 && !swiper.params.centeredSlides) thumbsToActivate = swiper.params.slidesPerView;
+		if (!swiper.params.thumbs.multipleActiveThumbs) thumbsToActivate = 1;
+		thumbsToActivate = Math.floor(thumbsToActivate);
+		thumbsSwiper.slides.forEach((slideEl) => slideEl.classList.remove(thumbActiveClass));
+		if (thumbsSwiper.params.loop || isVirtualEnabled()) for (let i = 0; i < thumbsToActivate; i += 1) elementChildren(thumbsSwiper.slidesEl, `[data-swiper-slide-index="${swiper.realIndex + i}"]`).forEach((slideEl) => {
+			slideEl.classList.add(thumbActiveClass);
+		});
+		else for (let i = 0; i < thumbsToActivate; i += 1) if (thumbsSwiper.slides[swiper.realIndex + i]) thumbsSwiper.slides[swiper.realIndex + i].classList.add(thumbActiveClass);
+		if (p?.autoScroll ?? true) autoScroll(initial ? 0 : void 0);
+	}
+	function autoScroll(slideSpeed) {
+		const thumbsSwiper = swiper.thumbs.swiper;
+		if (!thumbsSwiper || thumbsSwiper.destroyed) return;
+		const slidesPerView = thumbsSwiper.params.slidesPerView === "auto" ? thumbsSwiper.slidesPerViewDynamic() : thumbsSwiper.params.slidesPerView;
+		const autoScrollOffset = swiper.params.thumbs.autoScrollOffset;
+		const useOffset = autoScrollOffset && !thumbsSwiper.params.loop;
+		if (swiper.realIndex !== thumbsSwiper.realIndex || useOffset) {
+			const currentThumbsIndex = thumbsSwiper.activeIndex;
+			let newThumbsIndex;
+			let direction;
+			if (thumbsSwiper.params.loop) {
+				const newThumbsSlide = thumbsSwiper.slides.find((slideEl) => slideEl.getAttribute("data-swiper-slide-index") === `${swiper.realIndex}`);
+				newThumbsIndex = thumbsSwiper.slides.indexOf(newThumbsSlide);
+				direction = swiper.activeIndex > swiper.previousIndex ? "next" : "prev";
+			} else {
+				newThumbsIndex = swiper.realIndex;
+				direction = newThumbsIndex > swiper.previousIndex ? "next" : "prev";
+			}
+			if (useOffset) newThumbsIndex += direction === "next" ? autoScrollOffset : -1 * autoScrollOffset;
+			if (thumbsSwiper.visibleSlidesIndexes && thumbsSwiper.visibleSlidesIndexes.indexOf(newThumbsIndex) < 0) {
+				if (thumbsSwiper.params.centeredSlides) if (newThumbsIndex > currentThumbsIndex) newThumbsIndex = newThumbsIndex - Math.floor(slidesPerView / 2) + 1;
+				else newThumbsIndex = newThumbsIndex + Math.floor(slidesPerView / 2) - 1;
+				else if (newThumbsIndex > currentThumbsIndex && thumbsSwiper.params.slidesPerGroup === 1);
+				thumbsSwiper.slideTo(newThumbsIndex, slideSpeed);
+			}
+		}
+	}
+	on("beforeInit", () => {
+		const { thumbs } = swiper.params;
+		if (!thumbs || !thumbs.swiper) return;
+		if (typeof thumbs.swiper === "string" || thumbs.swiper instanceof HTMLElement) {
+			const document = getDocument();
+			const getThumbsElementAndInit = () => {
+				const thumbsElement = typeof thumbs.swiper === "string" ? document.querySelector(thumbs.swiper) : thumbs.swiper;
+				if (thumbsElement && thumbsElement.swiper) {
+					thumbs.swiper = thumbsElement.swiper;
+					init();
+					update(true);
+				} else if (thumbsElement) {
+					const eventName = `${swiper.params.eventsPrefix}init`;
+					const onThumbsSwiper = (e) => {
+						thumbs.swiper = e.detail[0];
+						thumbsElement.removeEventListener(eventName, onThumbsSwiper);
+						init();
+						update(true);
+						thumbs.swiper.update();
+						swiper.update();
+					};
+					thumbsElement.addEventListener(eventName, onThumbsSwiper);
+				}
+				return thumbsElement;
+			};
+			const watchForThumbsToAppear = () => {
+				if (swiper.destroyed) return;
+				if (!getThumbsElementAndInit()) requestAnimationFrame(watchForThumbsToAppear);
+			};
+			requestAnimationFrame(watchForThumbsToAppear);
+		} else {
+			init();
+			update(true);
+		}
+	});
+	on("slideChange update resize observerUpdate", () => {
+		update();
+	});
+	on("setTransition", (_s, duration) => {
+		const thumbsSwiper = swiper.thumbs.swiper;
+		if (!thumbsSwiper || thumbsSwiper.destroyed) return;
+		thumbsSwiper.setTransition(duration);
+	});
+	on("beforeDestroy", () => {
+		const thumbsSwiper = swiper.thumbs.swiper;
+		if (!thumbsSwiper || thumbsSwiper.destroyed) return;
+		if (swiperCreated) thumbsSwiper.destroy();
+	});
+	Object.assign(swiper.thumbs, {
+		init,
+		update
+	});
+}
+//#endregion
 //#region node_modules/swiper/shared/effect-init.mjs
 function effectInit(params) {
 	const { effect, swiper, on, setTranslate, setTransition, overwriteParams, perspective, recreateShadows, getEffectParams } = params;
@@ -4508,117 +4797,131 @@ function initCategoriesSliders() {
 		markSliderReady(slider);
 	});
 }
+function initOfferClubSliders() {
+	document.querySelectorAll("[data-fls-slider=\"offer-club\"]").forEach((slider) => {
+		const navigationRoot = slider.closest("[data-fls-slider-wrapper]") || slider;
+		const prevEl = navigationRoot.querySelector(".swiper-button-prev");
+		const nextEl = navigationRoot.querySelector(".swiper-button-next");
+		const paginationEl = navigationRoot.querySelector(".swiper-pagination");
+		new Swiper(slider, {
+			modules: [
+				A11y,
+				Navigation,
+				Pagination
+			],
+			observer: true,
+			observeParents: true,
+			slidesPerView: 1,
+			spaceBetween: 20,
+			speed: 800,
+			autoHeight: true,
+			pagination: paginationEl ? {
+				el: paginationEl,
+				clickable: true
+			} : false,
+			navigation: prevEl && nextEl ? {
+				prevEl,
+				nextEl
+			} : false
+		});
+		markSliderReady(slider);
+	});
+}
+function initSingleProductSliders() {
+	document.querySelectorAll("[data-fls-slider=\"single-product\"]").forEach((slider) => {
+		const sliderWrapper = slider.closest("[data-fls-slider-wrapper]") || slider.parentElement;
+		const isLayoutTwo = slider.closest(".single-product")?.classList.contains("single-product_second");
+		const galleryNav = sliderWrapper.querySelector(".single-product__gallery-nav");
+		const thumbsNav = sliderWrapper.querySelectorAll(".single-product__thumbs-nav");
+		const prevEl = galleryNav?.querySelector(".swiper-button-prev");
+		const nextEl = galleryNav?.querySelector(".swiper-button-next");
+		const thumbsEl = sliderWrapper.querySelector("[data-fls-slider=\"single-product-thumbs\"]");
+		let productThumbsSwiper = null;
+		if (thumbsEl) {
+			productThumbsSwiper = new Swiper(thumbsEl, {
+				modules: [
+					A11y,
+					Navigation,
+					Thumb
+				],
+				observer: true,
+				observeParents: true,
+				slidesPerView: "auto",
+				spaceBetween: 8,
+				speed: 400,
+				watchSlidesProgress: true,
+				slideToClickedSlide: true,
+				watchOverflow: true,
+				a11y: { enabled: false },
+				breakpoints: isLayoutTwo ? { 992: {
+					direction: "vertical",
+					slidesPerView: 4,
+					spaceBetween: 12
+				} } : {},
+				navigation: isLayoutTwo && thumbsNav.length === 2 ? {
+					prevEl: thumbsNav[0].querySelector(".swiper-button-prev"),
+					nextEl: thumbsNav[1].querySelector(".swiper-button-next")
+				} : false
+			});
+			if (isLayoutTwo && thumbsNav.length === 2) {
+				const thumbsColumn = sliderWrapper.querySelector(".single-product__thumbs-column");
+				const updateThumbNavState = () => {
+					const isLocked = productThumbsSwiper.isLocked || productThumbsSwiper.slides.length <= 4;
+					thumbsNav.forEach((nav) => {
+						nav.classList.toggle("_hidden", isLocked);
+					});
+					thumbsColumn?.classList.toggle("_has-nav", !isLocked);
+				};
+				updateThumbNavState();
+				productThumbsSwiper.on("afterInit", updateThumbNavState);
+				productThumbsSwiper.on("slideChange", updateThumbNavState);
+				productThumbsSwiper.on("reachBeginning", updateThumbNavState);
+				productThumbsSwiper.on("reachEnd", updateThumbNavState);
+				productThumbsSwiper.on("fromEdge", updateThumbNavState);
+				productThumbsSwiper.on("resize", updateThumbNavState);
+				productThumbsSwiper.on("lock", updateThumbNavState);
+				productThumbsSwiper.on("unlock", updateThumbNavState);
+			}
+			markSliderReady(thumbsEl);
+		}
+		new Swiper(slider, {
+			modules: [
+				A11y,
+				Navigation,
+				Thumb
+			],
+			observer: true,
+			observeParents: true,
+			slidesPerView: 1,
+			spaceBetween: 12,
+			speed: 800,
+			navigation: prevEl && nextEl ? {
+				prevEl,
+				nextEl
+			} : false,
+			thumbs: productThumbsSwiper ? { swiper: productThumbsSwiper } : void 0,
+			a11y: {
+				prevSlideMessage: "Предыдущее изображение",
+				nextSlideMessage: "Следующее изображение"
+			},
+			breakpoints: isLayoutTwo ? {
+				768: { slidesPerView: 2 },
+				992: { slidesPerView: 1 }
+			} : { 768: { slidesPerView: 2 } }
+		});
+		markSliderReady(slider);
+	});
+}
 function initSliders() {
 	initHeroSliders();
 	initCategoriesSliders();
+	initOfferClubSliders();
 	initProductsSliders();
 	initSalesSliders();
 	initProductCardSliders();
+	initSingleProductSliders();
 }
 if (document.querySelector("[data-fls-slider]")) document.addEventListener("DOMContentLoaded", initSliders);
-//#endregion
-//#region src/js/common/functions.js
-function addLoadedAttr() {
-	if (!document.documentElement.hasAttribute("data-fls-preloader-loading")) window.addEventListener("load", function() {
-		setTimeout(function() {
-			document.documentElement.setAttribute("data-fls-loaded", "");
-		}, 0);
-	});
-}
-var slideUp = (target, duration = 500, showmore = 0) => {
-	if (!target.classList.contains("--slide")) {
-		target.classList.add("--slide");
-		target.style.transitionProperty = "height, margin, padding";
-		target.style.transitionDuration = duration + "ms";
-		target.style.height = `${target.offsetHeight}px`;
-		target.offsetHeight;
-		target.style.overflow = "hidden";
-		target.style.height = showmore ? `${showmore}px` : `0px`;
-		target.style.paddingTop = 0;
-		target.style.paddingBottom = 0;
-		target.style.marginTop = 0;
-		target.style.marginBottom = 0;
-		window.setTimeout(() => {
-			target.hidden = !showmore ? true : false;
-			!showmore && target.style.removeProperty("height");
-			target.style.removeProperty("padding-top");
-			target.style.removeProperty("padding-bottom");
-			target.style.removeProperty("margin-top");
-			target.style.removeProperty("margin-bottom");
-			!showmore && target.style.removeProperty("overflow");
-			target.style.removeProperty("transition-duration");
-			target.style.removeProperty("transition-property");
-			target.classList.remove("--slide");
-			document.dispatchEvent(new CustomEvent("slideUpDone", { detail: { target } }));
-		}, duration);
-	}
-};
-var slideDown = (target, duration = 500, showmore = 0) => {
-	if (!target.classList.contains("--slide")) {
-		target.classList.add("--slide");
-		target.hidden = target.hidden ? false : null;
-		showmore && target.style.removeProperty("height");
-		let height = target.offsetHeight;
-		target.style.overflow = "hidden";
-		target.style.height = showmore ? `${showmore}px` : `0px`;
-		target.style.paddingTop = 0;
-		target.style.paddingBottom = 0;
-		target.style.marginTop = 0;
-		target.style.marginBottom = 0;
-		target.offsetHeight;
-		target.style.transitionProperty = "height, margin, padding";
-		target.style.transitionDuration = duration + "ms";
-		target.style.height = height + "px";
-		target.style.removeProperty("padding-top");
-		target.style.removeProperty("padding-bottom");
-		target.style.removeProperty("margin-top");
-		target.style.removeProperty("margin-bottom");
-		window.setTimeout(() => {
-			target.style.removeProperty("height");
-			target.style.removeProperty("overflow");
-			target.style.removeProperty("transition-duration");
-			target.style.removeProperty("transition-property");
-			target.classList.remove("--slide");
-			document.dispatchEvent(new CustomEvent("slideDownDone", { detail: { target } }));
-		}, duration);
-	}
-};
-var bodyLockStatus = true;
-var bodyLockToggle = (delay = 500) => {
-	if (document.documentElement.hasAttribute("data-fls-scrolllock")) bodyUnlock(delay);
-	else bodyLock(delay);
-};
-var bodyUnlock = (delay = 500) => {
-	if (bodyLockStatus) {
-		const lockPaddingElements = document.querySelectorAll("[data-fls-lp]");
-		setTimeout(() => {
-			lockPaddingElements.forEach((lockPaddingElement) => {
-				lockPaddingElement.style.paddingRight = "";
-			});
-			document.body.style.paddingRight = "";
-			document.documentElement.removeAttribute("data-fls-scrolllock");
-		}, delay);
-		bodyLockStatus = false;
-		setTimeout(function() {
-			bodyLockStatus = true;
-		}, delay);
-	}
-};
-var bodyLock = (delay = 500) => {
-	if (bodyLockStatus) {
-		const lockPaddingElements = document.querySelectorAll("[data-fls-lp]");
-		const lockPaddingValue = window.innerWidth - document.body.offsetWidth + "px";
-		lockPaddingElements.forEach((lockPaddingElement) => {
-			lockPaddingElement.style.paddingRight = lockPaddingValue;
-		});
-		document.body.style.paddingRight = lockPaddingValue;
-		document.documentElement.setAttribute("data-fls-scrolllock", "");
-		bodyLockStatus = false;
-		setTimeout(function() {
-			bodyLockStatus = true;
-		}, delay);
-	}
-};
 //#endregion
 //#region src/components/layout/popup/popup.js
 var Popup = class {
@@ -5414,3 +5717,4 @@ document.addEventListener("DOMContentLoaded", initLazyLoad);
 //#region src/js/app.js
 addLoadedAttr();
 //#endregion
+export { slideToggle as a, slideDown as i, bodyUnlock as n, slideUp as o, dataMediaQueries as r, bodyLock as t };

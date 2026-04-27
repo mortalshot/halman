@@ -10,12 +10,12 @@
 		<link rel="preload" href="./assets/fonts/Gilroy-Light.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 		<link rel="preload" href="./assets/fonts/Gilroy-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 		<link rel="shortcut icon" href="./assets/img/favicon.ico">
-		<title>Каталог товаров</title>
-		<script type="module" crossorigin="" src="./js/archive-products.min.js?v=1777305998433"></script>
+		<title>Корзина</title>
+		<script type="module" crossorigin="" src="./js/cart.min.js?v=1777305998441"></script>
 		<link rel="modulepreload" crossorigin="" href="./js/app.min.js">
-		<link rel="stylesheet" crossorigin="" href="./css/app.min.css?v=1777305998433">
-		<link rel="stylesheet" crossorigin="" href="./css/archive-products.min.css?v=1777305998433">
-		<link rel="stylesheet" crossorigin="" href="./css/main.min.css?v=1777305998433">
+		<link rel="stylesheet" crossorigin="" href="./css/app.min.css?v=1777305998441">
+		<link rel="stylesheet" crossorigin="" href="./css/cart.min.css?v=1777305998441">
+		<link rel="stylesheet" crossorigin="" href="./css/main.min.css?v=1777305998441">
 	</head>
 	<body>
 		<div class="wrapper">
@@ -333,234 +333,153 @@
 					</div>
 				</div>
 			</header>
-			<main class="page page--archive-products">
-				<section class="archive-products" data-fls-archive-products="" aria-labelledby="archive-products-title">
-					<div class="archive-products__container">
-						<div class="archive-products__head _heading">
-							<h1 id="archive-products-title" class="archive-products__title">Коллекция пылесосов Halman</h1>
-							<div class="archive-products__subtitle">Современные решения для быстрой и эффективной уборки.</div>
+			<main class="page">
+				<section class="cart-section" data-fls-cart="">
+					<div class="cart-section__container">
+						<div class="cart-section__back _heading">
+							<a href="/catalog/" class="popup-cart__back">
+								<span class="popup-cart__back-icon">
+									<svg class="icon" aria-hidden="true">
+										<use href="./assets/img/spritemap.svg#sprite-arrow"></use>
+									</svg>
+								</span>
+								<span>Вернуться к покупкам</span>
+							</a>
 						</div>
-						<div class="archive-products__filters" aria-label="Фильтр товаров">
-							<a href="#" class="archive-products__filter _active" aria-current="page">Все пылесосы</a>
-							<a href="#" class="archive-products__filter">D700</a>
-							<a href="#" class="archive-products__filter">WVC100</a>
-							<a href="#" class="archive-products__filter">D700DreamPro</a>
-							<a href="#" class="archive-products__filter">TurboSteam</a>
-							<a href="#" class="archive-products__filter">CSVC300</a>
-							<a href="#" class="archive-products__filter">WDVC2200 Aqua Power</a>
+						<div class="cart-section__heading _heading">
+							<h1 class="cart-section__title">
+								Корзина
+								<sup>2</sup>
+							</h1>
 						</div>
-						<div class="archive-products__items">
-							<article class="product-card archive-products__item" data-fls-productcard="">
-								<a href="single-products.html" class="product-card__image swiper" data-fls-slider="product-card" aria-label="Открыть товар: Вертикальный пылесос Halman D700 Dream">
-									<span class="product-card__badges">
-										<span class="product-card__badge badge badge_new">new</span>
-									</span>
-									<span class="product-card__pictures swiper-wrapper">
-										<span class="product-card__slide swiper-slide">
-											<picture>
-												<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/product1-image1.webp">
-											</picture>
-										</span>
-										<span class="product-card__slide swiper-slide">
-											<picture>
-												<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/category1.webp">
-											</picture>
-										</span>
-										<span class="product-card__slide swiper-slide">
-											<picture>
-												<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/product4-image1.webp">
-											</picture>
-										</span>
-									</span>
-									<span class="product-card__gallery-nav" aria-hidden="true"></span>
-									<span class="product-card__pagination swiper-pagination"></span>
-								</a>
-								<div class="product-card__body">
-									<a href="single-products.html" class="product-card__title">Вертикальный пылесос Halman D700 Dream</a>
-									<div class="product-card__text"></div>
-									<div class="product-card__prices">
-										<span class="product-card__old-price"></span>
-										<span class="product-card__price">13 990 ₽</span>
-									</div>
-									<button type="button" class="product-card__button btn btn_bg-main" data-fls-button="" aria-label="Добавить в корзину: Вертикальный пылесос Halman D700 Dream">В корзину</button>
+						<div id="warning_message"></div>
+						<form method="post" action="/personal/cart/" name="basket_form" id="basket_form">
+							<div class="cart-section__grid" id="cart">
+								<div class="cart-section__main">
+									<ul class="cart-section__items">
+										<li class="cart-item cart-item_basket" data-itemid="1767565" data-itemproductid="4474" name="Halman D700 Dream легкий вертикальный пылесос для повседневных задач">
+											<a href="/single-products.html" class="cart-item__image">
+												<picture>
+													<img alt="Halman D700 Dream" loading="lazy" src="./assets/img/products/product1-image1.webp">
+												</picture>
+											</a>
+											<div class="cart-item__about">
+												<a href="/single-products.html" class="cart-item__name">Halman D700 Dream легкий вертикальный пылесос для повседневных задач</a>
+												<div class="cart-item__code">
+													Артикул:
+													<strong>ET14330</strong>
+												</div>
+											</div>
+											<div class="cart-item__quantity">
+												<div data-fls-quantity="" class="quantity">
+													<button data-fls-quantity-minus="" type="button" class="quantity__button quantity__button--minus" aria-label="Уменьшить количество"></button>
+													<div class="quantity__input">
+														<input data-fls-quantity-value="" autocomplete="off" type="text" name="quantity[]" value="1" aria-label="Количество">
+													</div>
+													<button data-fls-quantity-plus="" type="button" class="quantity__button quantity__button--plus" aria-label="Увеличить количество"></button>
+												</div>
+											</div>
+											<div class="cart-item__price">
+												<div class="price">
+													<div class="price price_old">5 590 ₽</div>
+													<div class="price price_new">3 290 ₽</div>
+												</div>
+											</div>
+											<div class="cart-item__actions">
+												<div class="cart-item__remove deleteFromCart_1c" data-itemid="1767565">
+													<button type="button" aria-label="Удалить товар">
+														<svg class="icon" aria-hidden="true">
+															<use href="./assets/img/spritemap.svg#sprite-close"></use>
+														</svg>
+													</button>
+												</div>
+											</div>
+										</li>
+										<li class="cart-item cart-item_basket" data-itemid="1767566" data-itemproductid="20886" name="Halman D700 Dream легкий вертикальный пылесос для повседневных задач">
+											<a href="/single-products.html" class="cart-item__image">
+												<picture>
+													<img alt="Halman D700 Dream" loading="lazy" src="./assets/img/products/product1-image1.webp">
+												</picture>
+											</a>
+											<div class="cart-item__about">
+												<a href="/single-products.html" class="cart-item__name">Halman D700 Dream легкий вертикальный пылесос для повседневных задач</a>
+												<div class="cart-item__code">
+													Артикул:
+													<strong>ET14330</strong>
+												</div>
+											</div>
+											<div class="cart-item__quantity">
+												<div data-fls-quantity="" class="quantity">
+													<button data-fls-quantity-minus="" type="button" class="quantity__button quantity__button--minus" aria-label="Уменьшить количество"></button>
+													<div class="quantity__input">
+														<input data-fls-quantity-value="" autocomplete="off" type="text" name="quantity[]" value="1" aria-label="Количество">
+													</div>
+													<button data-fls-quantity-plus="" type="button" class="quantity__button quantity__button--plus" aria-label="Увеличить количество"></button>
+												</div>
+											</div>
+											<div class="cart-item__price">
+												<div class="price">
+													<div class="price price_current">3 290 ₽</div>
+												</div>
+											</div>
+											<div class="cart-item__actions">
+												<div class="cart-item__remove deleteFromCart_1c" data-itemid="1767566">
+													<button type="button" aria-label="Удалить товар">
+														<svg class="icon" aria-hidden="true">
+															<use href="./assets/img/spritemap.svg#sprite-close"></use>
+														</svg>
+													</button>
+												</div>
+											</div>
+										</li>
+									</ul>
+									<div style="display: none;"></div>
 								</div>
-							</article>
-							<article class="product-card archive-products__item" data-fls-productcard="">
-								<a href="single-products.html" class="product-card__image swiper" data-fls-slider="product-card" aria-label="Открыть товар: Вертикальный беспроводной пылесос Halman D700 Dream Pro">
-									<span class="product-card__badges">
-										<span class="product-card__badge badge badge_sale">sale</span>
-									</span>
-									<span class="product-card__pictures swiper-wrapper">
-										<span class="product-card__slide swiper-slide">
-											<picture>
-												<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/product2-image1.webp">
-											</picture>
-										</span>
-										<span class="product-card__slide swiper-slide">
-											<picture>
-												<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/product3-image1.webp">
-											</picture>
-										</span>
-										<span class="product-card__slide swiper-slide">
-											<picture>
-												<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/category3.webp">
-											</picture>
-										</span>
-									</span>
-									<span class="product-card__gallery-nav" aria-hidden="true"></span>
-									<span class="product-card__pagination swiper-pagination"></span>
-								</a>
-								<div class="product-card__body">
-									<a href="single-products.html" class="product-card__title">Вертикальный беспроводной пылесос Halman D700 Dream Pro</a>
-									<div class="product-card__text"></div>
-									<div class="product-card__prices">
-										<span class="product-card__old-price">13 990 ₽</span>
-										<span class="product-card__price">13 990 ₽</span>
+								<aside class="cart-section__sidebar cart-sidebar">
+									<div class="cart-sidebar__wrapper">
+										<div class="cart-sidebar__card cart-sidebar__promocode promocode">
+											<div class="promocode__wrapper">
+												<div class="activated-promo">
+													<div class="cart-sidebar__caption promocode__label">Активированный промокод</div>
+													<div class="promocode__row">
+														<input name="promo" type="text" class="form__input" value="" placeholder="Введите код здесь" data-placeholder="Введите код здесь">
+														<button class="promocode-change__btn btn btn_bg-gray">Изменить</button>
+													</div>
+												</div>
+												<div class="default-promo active">
+													<div class="cart-sidebar__caption promocode__label">Промокод</div>
+													<div class="promocode__row">
+														<input name="promo" type="text" class="input form__input" placeholder="Введите код здесь" data-placeholder="Введите код здесь">
+														<button class="promocode__btn btn btn_bg-main">
+															<svg class="icon" aria-hidden="true">
+																<use href="./assets/img/spritemap.svg#sprite-send"></use>
+															</svg>
+														</button>
+													</div>
+												</div>
+												<div class="promocode__notify"></div>
+											</div>
+										</div>
+										<div class="cart-sidebar__card cart-sidebar__total cart-total">
+											<div class="cart-total__wrapper">
+												<div class="cart-sidebar__caption cart-total__caption">Стоимость заказа:</div>
+												<div class="cart-total__price">
+													<div class="price">
+														<div class="price price_new">3 290 ₽</div>
+														<div class="price price_old">5 590 ₽</div>
+													</div>
+												</div>
+												<div class="cart-total__button">
+													<a href="/personal/order/" class="btn btn_big btn_bg-main">Оформить заказ</a>
+												</div>
+											</div>
+										</div>
 									</div>
-									<button type="button" class="product-card__button btn btn_bg-main" data-fls-button="" aria-label="Добавить в корзину: Вертикальный беспроводной пылесос Halman D700 Dream Pro">В корзину</button>
-								</div>
-							</article>
-							<article class="product-card archive-products__item" data-fls-productcard="">
-								<a href="single-products.html" class="product-card__image swiper" data-fls-slider="product-card" aria-label="Открыть товар: Универсальный дезинфицирующий моющий пылесос с паром 4 в 1 TurboSteam">
-									<span class="product-card__badges">
-										<span class="product-card__badge badge badge_new">new</span>
-									</span>
-									<span class="product-card__pictures swiper-wrapper">
-										<span class="product-card__slide swiper-slide">
-											<picture>
-												<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/product4-image1.webp">
-											</picture>
-										</span>
-										<span class="product-card__slide swiper-slide">
-											<picture>
-												<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/product1-image1.webp">
-											</picture>
-										</span>
-										<span class="product-card__slide swiper-slide">
-											<picture>
-												<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/category4.webp">
-											</picture>
-										</span>
-									</span>
-									<span class="product-card__gallery-nav" aria-hidden="true"></span>
-									<span class="product-card__pagination swiper-pagination"></span>
-								</a>
-								<div class="product-card__body">
-									<a href="single-products.html" class="product-card__title">Универсальный дезинфицирующий моющий пылесос с паром 4 в 1 TurboSteam</a>
-									<div class="product-card__text"></div>
-									<div class="product-card__prices">
-										<span class="product-card__old-price"></span>
-										<span class="product-card__price">13 990 ₽</span>
-									</div>
-									<button type="button" class="product-card__button btn btn_bg-main" data-fls-button="" aria-label="Добавить в корзину: Универсальный дезинфицирующий моющий пылесос с паром 4 в 1 TurboSteam">В корзину</button>
-								</div>
-							</article>
-							<article class="product-card archive-products__item" data-fls-productcard="">
-								<a href="single-products.html" class="product-card__image swiper" data-fls-slider="product-card" aria-label="Открыть товар: Вертикальный беспроводной пылесос Halman D700 Dream Pro">
-									<span class="product-card__badges">
-										<span class="product-card__badge badge badge_"></span>
-									</span>
-									<span class="product-card__pictures swiper-wrapper">
-										<span class="product-card__slide swiper-slide">
-											<picture>
-												<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/product3-image1.webp">
-											</picture>
-										</span>
-										<span class="product-card__slide swiper-slide">
-											<picture>
-												<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/product2-image1.webp">
-											</picture>
-										</span>
-										<span class="product-card__slide swiper-slide">
-											<picture>
-												<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/category2.webp">
-											</picture>
-										</span>
-									</span>
-									<span class="product-card__gallery-nav" aria-hidden="true"></span>
-									<span class="product-card__pagination swiper-pagination"></span>
-								</a>
-								<div class="product-card__body">
-									<a href="single-products.html" class="product-card__title">Вертикальный беспроводной пылесос Halman D700 Dream Pro</a>
-									<div class="product-card__text"></div>
-									<div class="product-card__prices">
-										<span class="product-card__old-price"></span>
-										<span class="product-card__price">13 990 ₽</span>
-									</div>
-									<button type="button" class="product-card__button btn btn_bg-main" data-fls-button="" aria-label="Добавить в корзину: Вертикальный беспроводной пылесос Halman D700 Dream Pro">В корзину</button>
-								</div>
-							</article>
-							<article class="product-card archive-products__item" data-fls-productcard="">
-								<a href="single-products.html" class="product-card__image swiper" data-fls-slider="product-card" aria-label="Открыть товар: Вертикальный пылесос Halman D700 Dream">
-									<span class="product-card__badges">
-										<span class="product-card__badge badge badge_"></span>
-									</span>
-									<span class="product-card__pictures swiper-wrapper">
-										<span class="product-card__slide swiper-slide">
-											<picture>
-												<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/product1-image1.webp">
-											</picture>
-										</span>
-										<span class="product-card__slide swiper-slide">
-											<picture>
-												<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/category1.webp">
-											</picture>
-										</span>
-										<span class="product-card__slide swiper-slide">
-											<picture>
-												<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/product4-image1.webp">
-											</picture>
-										</span>
-									</span>
-									<span class="product-card__gallery-nav" aria-hidden="true"></span>
-									<span class="product-card__pagination swiper-pagination"></span>
-								</a>
-								<div class="product-card__body">
-									<a href="single-products.html" class="product-card__title">Вертикальный пылесос Halman D700 Dream</a>
-									<div class="product-card__text"></div>
-									<div class="product-card__prices">
-										<span class="product-card__old-price"></span>
-										<span class="product-card__price">13 990 ₽</span>
-									</div>
-									<button type="button" class="product-card__button btn btn_bg-main" data-fls-button="" aria-label="Добавить в корзину: Вертикальный пылесос Halman D700 Dream">В корзину</button>
-								</div>
-							</article>
-							<article class="product-card archive-products__item" data-fls-productcard="">
-								<a href="single-products.html" class="product-card__image swiper" data-fls-slider="product-card" aria-label="Открыть товар: Вертикальный беспроводной пылесос Halman D700 Dream Pro">
-									<span class="product-card__badges">
-										<span class="product-card__badge badge badge_new">new</span>
-									</span>
-									<span class="product-card__pictures swiper-wrapper">
-										<span class="product-card__slide swiper-slide">
-											<picture>
-												<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/product2-image1.webp">
-											</picture>
-										</span>
-										<span class="product-card__slide swiper-slide">
-											<picture>
-												<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/product3-image1.webp">
-											</picture>
-										</span>
-										<span class="product-card__slide swiper-slide">
-											<picture>
-												<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/category3.webp">
-											</picture>
-										</span>
-									</span>
-									<span class="product-card__gallery-nav" aria-hidden="true"></span>
-									<span class="product-card__pagination swiper-pagination"></span>
-								</a>
-								<div class="product-card__body">
-									<a href="single-products.html" class="product-card__title">Вертикальный беспроводной пылесос Halman D700 Dream Pro</a>
-									<div class="product-card__text"></div>
-									<div class="product-card__prices">
-										<span class="product-card__old-price"></span>
-										<span class="product-card__price">13 990 ₽</span>
-									</div>
-									<button type="button" class="product-card__button btn btn_bg-main" data-fls-button="" aria-label="Добавить в корзину: Вертикальный беспроводной пылесос Halman D700 Dream Pro">В корзину</button>
-								</div>
-							</article>
-						</div>
+								</aside>
+							</div>
+							<input type="hidden" name="BasketOrder" value="BasketOrder">
+							<!-- <input type="hidden" name="ajax_post" id="ajax_post" value="Y"> -->
+						</form>
 					</div>
 				</section>
 			</main>

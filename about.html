@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="robots" content="noindex, nofollow">
@@ -10,12 +10,17 @@
 		<link rel="preload" href="./assets/fonts/Gilroy-Light.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 		<link rel="preload" href="./assets/fonts/Gilroy-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 		<link rel="shortcut icon" href="./assets/img/favicon.ico">
-		<title>Каталог товаров</title>
-		<script type="module" crossorigin="" src="./js/archive-products.min.js?v=1777305998433"></script>
+		<title>О Halman</title>
+		<script type="module" crossorigin="" src="./js/about.min.js?v=1777305998434"></script>
 		<link rel="modulepreload" crossorigin="" href="./js/app.min.js">
-		<link rel="stylesheet" crossorigin="" href="./css/app.min.css?v=1777305998433">
-		<link rel="stylesheet" crossorigin="" href="./css/archive-products.min.css?v=1777305998433">
-		<link rel="stylesheet" crossorigin="" href="./css/main.min.css?v=1777305998433">
+		<link rel="modulepreload" crossorigin="" href="./js/offer-club.min.js">
+		<link rel="modulepreload" crossorigin="" href="./js/spollers.min.js">
+		<link rel="stylesheet" crossorigin="" href="./css/app.min.css?v=1777305998434">
+		<link rel="stylesheet" crossorigin="" href="./css/offer-club.min.css?v=1777305998434">
+		<link rel="stylesheet" crossorigin="" href="./css/spollers.min.css?v=1777305998434">
+		<link rel="stylesheet" crossorigin="" href="./css/about.min.css?v=1777305998434">
+		<link rel="stylesheet" crossorigin="" href="./css/breadcrumbs.min.css?v=1777305998434">
+		<link rel="stylesheet" crossorigin="" href="./css/inner.min.css?v=1777305998434">
 	</head>
 	<body>
 		<div class="wrapper">
@@ -38,7 +43,7 @@
 								<nav class="menu__body">
 									<ul class="menu__list">
 										<li class="menu__item">
-											<a href="about.html" class="menu__link">О Halman</a>
+											<a href="about.html" class="menu__link menu__link--active">О Halman</a>
 										</li>
 										<li class="menu__item">
 											<a href="#" class="menu__link">Новинки</a>
@@ -333,233 +338,317 @@
 					</div>
 				</div>
 			</header>
-			<main class="page page--archive-products">
-				<section class="archive-products" data-fls-archive-products="" aria-labelledby="archive-products-title">
-					<div class="archive-products__container">
-						<div class="archive-products__head _heading">
-							<h1 id="archive-products-title" class="archive-products__title">Коллекция пылесосов Halman</h1>
-							<div class="archive-products__subtitle">Современные решения для быстрой и эффективной уборки.</div>
-						</div>
-						<div class="archive-products__filters" aria-label="Фильтр товаров">
-							<a href="#" class="archive-products__filter _active" aria-current="page">Все пылесосы</a>
-							<a href="#" class="archive-products__filter">D700</a>
-							<a href="#" class="archive-products__filter">WVC100</a>
-							<a href="#" class="archive-products__filter">D700DreamPro</a>
-							<a href="#" class="archive-products__filter">TurboSteam</a>
-							<a href="#" class="archive-products__filter">CSVC300</a>
-							<a href="#" class="archive-products__filter">WDVC2200 Aqua Power</a>
-						</div>
-						<div class="archive-products__items">
-							<article class="product-card archive-products__item" data-fls-productcard="">
-								<a href="single-products.html" class="product-card__image swiper" data-fls-slider="product-card" aria-label="Открыть товар: Вертикальный пылесос Halman D700 Dream">
-									<span class="product-card__badges">
-										<span class="product-card__badge badge badge_new">new</span>
-									</span>
-									<span class="product-card__pictures swiper-wrapper">
-										<span class="product-card__slide swiper-slide">
-											<picture>
-												<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/product1-image1.webp">
-											</picture>
-										</span>
-										<span class="product-card__slide swiper-slide">
-											<picture>
-												<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/category1.webp">
-											</picture>
-										</span>
-										<span class="product-card__slide swiper-slide">
-											<picture>
-												<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/product4-image1.webp">
-											</picture>
-										</span>
-									</span>
-									<span class="product-card__gallery-nav" aria-hidden="true"></span>
-									<span class="product-card__pagination swiper-pagination"></span>
-								</a>
-								<div class="product-card__body">
-									<a href="single-products.html" class="product-card__title">Вертикальный пылесос Halman D700 Dream</a>
-									<div class="product-card__text"></div>
-									<div class="product-card__prices">
-										<span class="product-card__old-price"></span>
-										<span class="product-card__price">13 990 ₽</span>
+			<main class="inner">
+				<div class="breadcrumbs" data-fls-breadcrumbs="">
+					<div class="breadcrumbs__container">
+						<nav class="breadcrumbs__nav" aria-label="Breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+							<ul class="breadcrumbs__list">
+								<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+									<a class="breadcrumbs__link link-hover" href="index.html" itemprop="item">
+										<span itemprop="name">Главная</span>
+									</a>
+									<meta itemprop="position" content="1">
+								</li>
+								<span class="breadcrumbs__sep" aria-hidden="true">/</span>
+								<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+									<a class="breadcrumbs__link link-hover" href="#" itemprop="item">
+										<span itemprop="name">Покупателям</span>
+									</a>
+									<meta itemprop="position" content="2">
+								</li>
+								<span class="breadcrumbs__sep" aria-hidden="true">/</span>
+								<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+									<span class="breadcrumbs__current" itemprop="name" aria-current="page">О Halman</span>
+									<meta itemprop="position" content="3">
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+				<section class="inner__section">
+					<div class="inner__container">
+						<div class="inner__layout">
+							<aside class="inner__aside">
+								<nav class="customers-menu" aria-label="Меню раздела">
+									<div data-fls-spollers="991.98,max" class="customers-menu__spollers spollers">
+										<details class="spollers__item">
+											<summary class="customers-menu__summary spollers__title">О Halman</summary>
+											<div class="customers-menu__body spollers__body">
+												<ul class="customers-menu__list">
+													<li class="customers-menu__item customers-menu__item--active">
+														<a href="about.html" class="customers-menu__link customers-menu__link--active">О Halman</a>
+													</li>
+													<li class="customers-menu__item">
+														<a href="customer-care.html" class="customers-menu__link">Забота о клиентах</a>
+													</li>
+													<li class="customers-menu__item">
+														<a href="questions.html" class="customers-menu__link">Вопросы и ответы</a>
+													</li>
+													<li class="customers-menu__item">
+														<a href="club-halman.html" class="customers-menu__link">Клуб Halman</a>
+													</li>
+													<li class="customers-menu__item">
+														<a href="serial-number.html" class="customers-menu__link">Серийный номер</a>
+													</li>
+													<li class="customers-menu__item">
+														<a href="contacts.html" class="customers-menu__link">Контакты</a>
+													</li>
+												</ul>
+											</div>
+										</details>
 									</div>
-									<button type="button" class="product-card__button btn btn_bg-main" data-fls-button="" aria-label="Добавить в корзину: Вертикальный пылесос Halman D700 Dream">В корзину</button>
-								</div>
-							</article>
-							<article class="product-card archive-products__item" data-fls-productcard="">
-								<a href="single-products.html" class="product-card__image swiper" data-fls-slider="product-card" aria-label="Открыть товар: Вертикальный беспроводной пылесос Halman D700 Dream Pro">
-									<span class="product-card__badges">
-										<span class="product-card__badge badge badge_sale">sale</span>
-									</span>
-									<span class="product-card__pictures swiper-wrapper">
-										<span class="product-card__slide swiper-slide">
-											<picture>
-												<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/product2-image1.webp">
-											</picture>
-										</span>
-										<span class="product-card__slide swiper-slide">
-											<picture>
-												<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/product3-image1.webp">
-											</picture>
-										</span>
-										<span class="product-card__slide swiper-slide">
-											<picture>
-												<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/category3.webp">
-											</picture>
-										</span>
-									</span>
-									<span class="product-card__gallery-nav" aria-hidden="true"></span>
-									<span class="product-card__pagination swiper-pagination"></span>
-								</a>
-								<div class="product-card__body">
-									<a href="single-products.html" class="product-card__title">Вертикальный беспроводной пылесос Halman D700 Dream Pro</a>
-									<div class="product-card__text"></div>
-									<div class="product-card__prices">
-										<span class="product-card__old-price">13 990 ₽</span>
-										<span class="product-card__price">13 990 ₽</span>
+								</nav>
+							</aside>
+							<div class="inner__content">
+								<h1 class="inner__title _heading">Halman выводит на рынок бытовую технику, призванную сокращать время уборки</h1>
+								<section class="offer-club" data-fls-offer-club="" data-fls-slider-wrapper="" aria-labelledby="offer-club-title">
+									<div class="offer-club__container">
+										<div class="offer-club__body">
+											<div data-fls-slider="offer-club" class="offer-club__slider swiper" aria-label="Слайды клуба Halman">
+												<div class="offer-club__wrapper swiper-wrapper">
+													<div class="offer-club__slide swiper-slide">
+														<div class="offer-club__banner">
+															<div class="offer-club__content">
+																<h2 id="offer-club-title" class="offer-club__title">
+																	<strong>Вступайте в клуб Halman</strong>
+																	<br>
+																	и забирайте промокод
+																	<br>
+																	на
+																	<strong>скидку 10%</strong>
+																	при покупке
+																	<br>
+																	на сайте
+																</h2>
+																<form action="#" method="post" class="offer-club__form">
+																	<label class="offer-club__field">
+																		<input data-fls-input="" autocomplete="off" type="email" name="email" placeholder="Ваш email" class="offer-club__input input">
+																	</label>
+																	<button type="submit" class="offer-club__submit btn btn_bg-main" data-fls-button="">
+																		<span>Получить промокод</span>
+																		<svg class="icon" aria-hidden="true">
+																			<use href="./assets/img/spritemap.svg#sprite-send"></use>
+																		</svg>
+																	</button>
+																</form>
+															</div>
+															<div class="offer-club__media">
+																<div class="offer-club__image">
+																	<picture>
+																		<source media="(max-width: 600px)" data-srcset="./assets/img/offer/offer1-600.webp" type="image/webp">
+																		<img data-fls-lazy="" alt="Техника Halman" loading="lazy" data-src="./assets/img/offer/offer1.webp">
+																	</picture>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="offer-club__slide swiper-slide">
+														<div class="offer-club__banner">
+															<div class="offer-club__content">
+																<h2 class="offer-club__title">
+																	Вступайте в клуб Halman
+																	<br>
+																	и забирайте промокод
+																	<br>
+																	на скидку 10% при покупке
+																	<br>
+																	на сайте
+																</h2>
+																<div class="offer-club__lead">
+																	<div class="offer-club__text">
+																		Смотрите обзор техники Halman, узнавайте о возможностях моделей и выбирайте решение под свои задачи.
+																	</div>
+																	<a href="#" class="offer-club__button btn btn_big btn_bg-main" data-fls-button="">
+																		<span>Смотреть обзор</span>
+																	</a>
+																</div>
+															</div>
+															<div class="offer-club__media">
+																<div data-fls-gallery="" class="offer-club__video-gallery">
+																	<a href="https://www.youtube.com/watch?v=M7lc1UVf-VE" class="offer-club__image offer-club__image_video" data-fls-gallery-item="" aria-label="Открыть видео о клубе Halman">
+																		<picture>
+																			<source media="(max-width: 600px)" data-srcset="./assets/img/offer/offer1-600.webp" type="image/webp">
+																			<img data-fls-lazy="" alt="Видео о клубе Halman" loading="lazy" data-src="./assets/img/offer/offer1.webp">
+																		</picture>
+																		<span class="offer-club__play" aria-hidden="true">
+																			<svg class="icon" aria-hidden="true">
+																				<use href="./assets/img/spritemap.svg#sprite-play"></use>
+																			</svg>
+																		</span>
+																	</a>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="offer-club__slide swiper-slide">
+														<div class="offer-club__banner">
+															<div class="offer-club__content">
+																<h2 class="offer-club__title">
+																	Вступайте в клуб Halman
+																	<br>
+																	и забирайте промокод
+																	<br>
+																	на скидку 10% при покупке
+																	<br>
+																	на сайте
+																</h2>
+																<form action="#" method="post" class="offer-club__form">
+																	<label class="offer-club__field">
+																		<input data-fls-input="" autocomplete="off" type="email" name="email" placeholder="Ваш email" class="offer-club__input input">
+																	</label>
+																	<button type="submit" class="offer-club__submit btn btn_bg-main" data-fls-button="">
+																		<span>Получить промокод</span>
+																		<svg class="icon" aria-hidden="true">
+																			<use href="./assets/img/spritemap.svg#sprite-send"></use>
+																		</svg>
+																	</button>
+																</form>
+															</div>
+															<div class="offer-club__media">
+																<div class="offer-club__image">
+																	<picture>
+																		<source media="(max-width: 600px)" data-srcset="./assets/img/offer/offer1-600.webp" type="image/webp">
+																		<img data-fls-lazy="" alt="Техника Halman" loading="lazy" data-src="./assets/img/offer/offer1.webp">
+																	</picture>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="offer-club__slide swiper-slide">
+														<div class="offer-club__banner">
+															<div class="offer-club__content">
+																<h2 class="offer-club__title">
+																	Вступайте в клуб Halman
+																	<br>
+																	и забирайте промокод
+																	<br>
+																	на скидку 10% при покупке
+																	<br>
+																	на сайте
+																</h2>
+																<form action="#" method="post" class="offer-club__form">
+																	<label class="offer-club__field">
+																		<input data-fls-input="" autocomplete="off" type="email" name="email" placeholder="Ваш email" class="offer-club__input input">
+																	</label>
+																	<button type="submit" class="offer-club__submit btn btn_bg-main" data-fls-button="">
+																		<span>Получить промокод</span>
+																		<svg class="icon" aria-hidden="true">
+																			<use href="./assets/img/spritemap.svg#sprite-send"></use>
+																		</svg>
+																	</button>
+																</form>
+															</div>
+															<div class="offer-club__media">
+																<div class="offer-club__image">
+																	<picture>
+																		<source media="(max-width: 600px)" data-srcset="./assets/img/offer/offer1-600.webp" type="image/webp">
+																		<img data-fls-lazy="" alt="Техника Halman" loading="lazy" data-src="./assets/img/offer/offer1.webp">
+																	</picture>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="offer-club__navigation slider-navigation__arrows">
+													<button type="button" class="offer-club__arrow slider-navigation__arrow slider-navigation__arrow_prev swiper-button-prev animation" data-fls-iconanimation="" aria-label="Предыдущий слайд">
+														<svg class="icon animation__object" aria-hidden="true">
+															<use href="./assets/img/spritemap.svg#sprite-arrow"></use>
+														</svg>
+													</button>
+													<button type="button" class="offer-club__arrow slider-navigation__arrow slider-navigation__arrow_next swiper-button-next animation" data-fls-iconanimation="" aria-label="Следующий слайд">
+														<svg class="icon animation__object" aria-hidden="true">
+															<use href="./assets/img/spritemap.svg#sprite-arrow"></use>
+														</svg>
+													</button>
+												</div>
+											</div>
+											<div class="offer-club__pagination slider-navigation__pagination swiper-pagination"></div>
+										</div>
 									</div>
-									<button type="button" class="product-card__button btn btn_bg-main" data-fls-button="" aria-label="Добавить в корзину: Вертикальный беспроводной пылесос Halman D700 Dream Pro">В корзину</button>
-								</div>
-							</article>
-							<article class="product-card archive-products__item" data-fls-productcard="">
-								<a href="single-products.html" class="product-card__image swiper" data-fls-slider="product-card" aria-label="Открыть товар: Универсальный дезинфицирующий моющий пылесос с паром 4 в 1 TurboSteam">
-									<span class="product-card__badges">
-										<span class="product-card__badge badge badge_new">new</span>
-									</span>
-									<span class="product-card__pictures swiper-wrapper">
-										<span class="product-card__slide swiper-slide">
-											<picture>
-												<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/product4-image1.webp">
-											</picture>
-										</span>
-										<span class="product-card__slide swiper-slide">
-											<picture>
-												<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/product1-image1.webp">
-											</picture>
-										</span>
-										<span class="product-card__slide swiper-slide">
-											<picture>
-												<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/category4.webp">
-											</picture>
-										</span>
-									</span>
-									<span class="product-card__gallery-nav" aria-hidden="true"></span>
-									<span class="product-card__pagination swiper-pagination"></span>
-								</a>
-								<div class="product-card__body">
-									<a href="single-products.html" class="product-card__title">Универсальный дезинфицирующий моющий пылесос с паром 4 в 1 TurboSteam</a>
-									<div class="product-card__text"></div>
-									<div class="product-card__prices">
-										<span class="product-card__old-price"></span>
-										<span class="product-card__price">13 990 ₽</span>
+								</section>
+								<section class="highlights" data-fls-highlights="" aria-labelledby="highlights-title">
+									<div class="highlights__items">
+										<article class="highlights__item highlights__item_main">
+											<h2 id="highlights-title" class="highlights__title">О Halman</h2>
+											<div class="highlights__image">
+												<picture>
+													<img data-fls-lazy="" alt="Техника Halman" loading="lazy" data-src="./assets/img/highlights/highlights-1.webp">
+												</picture>
+											</div>
+										</article>
+										<article class="highlights__item">
+											<div class="highlights__thumb">
+												<picture>
+													<img data-fls-lazy="" alt="Экспертиза Halman" loading="lazy" data-src="./assets/img/highlights/highlights-2.webp">
+												</picture>
+											</div>
+											<div class="highlights__text">
+												<strong>Продукты Halman — результат 15-летней экспертизы специалистов</strong>
+												в области производства и сервиса бытовой техники
+											</div>
+										</article>
+										<article class="highlights__item">
+											<div class="highlights__thumb">
+												<picture>
+													<img data-fls-lazy="" alt="Миссия Halman" loading="lazy" data-src="./assets/img/highlights/highlights-3.webp">
+												</picture>
+											</div>
+											<div class="highlights__text">
+												<strong>Миссия Halman — выводить на рынок модернизированные продукты,</strong>
+												которые упрощают быт
+											</div>
+										</article>
+										<article class="highlights__item">
+											<div class="highlights__thumb">
+												<picture>
+													<img data-fls-lazy="" alt="Идея Halman" loading="lazy" data-src="./assets/img/highlights/highlights-4.webp">
+												</picture>
+											</div>
+											<div class="highlights__text">
+												<strong>Освободите время для важного —</strong>
+												об уборке позаботится Halman
+											</div>
+										</article>
 									</div>
-									<button type="button" class="product-card__button btn btn_bg-main" data-fls-button="" aria-label="Добавить в корзину: Универсальный дезинфицирующий моющий пылесос с паром 4 в 1 TurboSteam">В корзину</button>
-								</div>
-							</article>
-							<article class="product-card archive-products__item" data-fls-productcard="">
-								<a href="single-products.html" class="product-card__image swiper" data-fls-slider="product-card" aria-label="Открыть товар: Вертикальный беспроводной пылесос Halman D700 Dream Pro">
-									<span class="product-card__badges">
-										<span class="product-card__badge badge badge_"></span>
-									</span>
-									<span class="product-card__pictures swiper-wrapper">
-										<span class="product-card__slide swiper-slide">
-											<picture>
-												<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/product3-image1.webp">
-											</picture>
-										</span>
-										<span class="product-card__slide swiper-slide">
-											<picture>
-												<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/product2-image1.webp">
-											</picture>
-										</span>
-										<span class="product-card__slide swiper-slide">
-											<picture>
-												<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/category2.webp">
-											</picture>
-										</span>
-									</span>
-									<span class="product-card__gallery-nav" aria-hidden="true"></span>
-									<span class="product-card__pagination swiper-pagination"></span>
-								</a>
-								<div class="product-card__body">
-									<a href="single-products.html" class="product-card__title">Вертикальный беспроводной пылесос Halman D700 Dream Pro</a>
-									<div class="product-card__text"></div>
-									<div class="product-card__prices">
-										<span class="product-card__old-price"></span>
-										<span class="product-card__price">13 990 ₽</span>
+								</section>
+								<section class="workflow" data-fls-workflow="" aria-labelledby="workflow-title">
+									<h2 id="workflow-title" class="workflow__title _heading">Как мы это делаем?</h2>
+									<div class="workflow__items">
+										<article class="workflow__item">
+											<div class="workflow__image">
+												<picture>
+													<img data-fls-lazy="" alt="Анализируем рынок" loading="lazy" data-src="./assets/img/workflow/workflow1.webp">
+												</picture>
+											</div>
+											<div class="workflow__text">
+												Анализируем рынок
+												<br>
+												и потребности пользователей
+											</div>
+										</article>
+										<article class="workflow__item">
+											<div class="workflow__image">
+												<picture>
+													<img data-fls-lazy="" alt="Разрабатываем и тестируем продукты" loading="lazy" data-src="./assets/img/workflow/workflow2.webp">
+												</picture>
+											</div>
+											<div class="workflow__text">
+												Разрабатываем и тестируем продукты, опираясь на пользовательский опыт. Модернизируем технические характеристики, совершенствуем эргономику устройств
+											</div>
+										</article>
+										<article class="workflow__item">
+											<div class="workflow__image">
+												<picture>
+													<img data-fls-lazy="" alt="Оцениваем эффективность моделей" loading="lazy" data-src="./assets/img/workflow/workflow3.webp">
+												</picture>
+											</div>
+											<div class="workflow__text">
+												Оцениваем эффективность моделей, выводим наиболее производительные и удобные. Каждое устройство проходит трехступенчатую техническую проверку
+											</div>
+										</article>
 									</div>
-									<button type="button" class="product-card__button btn btn_bg-main" data-fls-button="" aria-label="Добавить в корзину: Вертикальный беспроводной пылесос Halman D700 Dream Pro">В корзину</button>
-								</div>
-							</article>
-							<article class="product-card archive-products__item" data-fls-productcard="">
-								<a href="single-products.html" class="product-card__image swiper" data-fls-slider="product-card" aria-label="Открыть товар: Вертикальный пылесос Halman D700 Dream">
-									<span class="product-card__badges">
-										<span class="product-card__badge badge badge_"></span>
-									</span>
-									<span class="product-card__pictures swiper-wrapper">
-										<span class="product-card__slide swiper-slide">
-											<picture>
-												<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/product1-image1.webp">
-											</picture>
-										</span>
-										<span class="product-card__slide swiper-slide">
-											<picture>
-												<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/category1.webp">
-											</picture>
-										</span>
-										<span class="product-card__slide swiper-slide">
-											<picture>
-												<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/product4-image1.webp">
-											</picture>
-										</span>
-									</span>
-									<span class="product-card__gallery-nav" aria-hidden="true"></span>
-									<span class="product-card__pagination swiper-pagination"></span>
-								</a>
-								<div class="product-card__body">
-									<a href="single-products.html" class="product-card__title">Вертикальный пылесос Halman D700 Dream</a>
-									<div class="product-card__text"></div>
-									<div class="product-card__prices">
-										<span class="product-card__old-price"></span>
-										<span class="product-card__price">13 990 ₽</span>
-									</div>
-									<button type="button" class="product-card__button btn btn_bg-main" data-fls-button="" aria-label="Добавить в корзину: Вертикальный пылесос Halman D700 Dream">В корзину</button>
-								</div>
-							</article>
-							<article class="product-card archive-products__item" data-fls-productcard="">
-								<a href="single-products.html" class="product-card__image swiper" data-fls-slider="product-card" aria-label="Открыть товар: Вертикальный беспроводной пылесос Halman D700 Dream Pro">
-									<span class="product-card__badges">
-										<span class="product-card__badge badge badge_new">new</span>
-									</span>
-									<span class="product-card__pictures swiper-wrapper">
-										<span class="product-card__slide swiper-slide">
-											<picture>
-												<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/product2-image1.webp">
-											</picture>
-										</span>
-										<span class="product-card__slide swiper-slide">
-											<picture>
-												<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/product3-image1.webp">
-											</picture>
-										</span>
-										<span class="product-card__slide swiper-slide">
-											<picture>
-												<img data-fls-lazy="" alt="" aria-hidden="true" loading="lazy" data-src="./assets/img/products/category3.webp">
-											</picture>
-										</span>
-									</span>
-									<span class="product-card__gallery-nav" aria-hidden="true"></span>
-									<span class="product-card__pagination swiper-pagination"></span>
-								</a>
-								<div class="product-card__body">
-									<a href="single-products.html" class="product-card__title">Вертикальный беспроводной пылесос Halman D700 Dream Pro</a>
-									<div class="product-card__text"></div>
-									<div class="product-card__prices">
-										<span class="product-card__old-price"></span>
-										<span class="product-card__price">13 990 ₽</span>
-									</div>
-									<button type="button" class="product-card__button btn btn_bg-main" data-fls-button="" aria-label="Добавить в корзину: Вертикальный беспроводной пылесос Halman D700 Dream Pro">В корзину</button>
-								</div>
-							</article>
+								</section>
+							</div>
 						</div>
 					</div>
 				</section>
