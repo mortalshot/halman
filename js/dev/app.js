@@ -5235,27 +5235,36 @@ document.querySelector("[data-fls-menu]") && window.addEventListener("load", men
 //#endregion
 //#region src/components/layout/header/header-height.js
 var inited = false;
-var lastH = -1;
+var lastHeaderH = -1;
+var lastBottomH = -1;
 var controller = null;
 var ro = null;
 function initHeaderHeight() {
 	if (inited) return;
 	inited = true;
 	const root = document.documentElement;
-	const header = document.querySelector(".header");
-	if (!header) return;
+	const headerTop = document.querySelector(".header__top");
+	const headerBottom = document.querySelector(".header__bottom");
+	if (!headerTop || !headerBottom) return;
 	const setVar = () => {
-		const h = header.getBoundingClientRect().height || 0;
-		if (h !== lastH) {
-			lastH = h;
-			root.style.setProperty("--header-height", `${h}px`);
+		const topHeight = headerTop.getBoundingClientRect().height || 0;
+		const bottomHeight = headerBottom.getBoundingClientRect().height || 0;
+		const headerHeight = topHeight + bottomHeight;
+		if (headerHeight !== lastHeaderH) {
+			lastHeaderH = headerHeight;
+			root.style.setProperty("--header-height", `${headerHeight}px`);
+		}
+		if (bottomHeight !== lastBottomH) {
+			lastBottomH = bottomHeight;
+			root.style.setProperty("--header-bottom-height", `${bottomHeight}px`);
 		}
 	};
 	setVar();
 	controller = new AbortController();
 	const { signal } = controller;
 	ro = new ResizeObserver(setVar);
-	ro.observe(header);
+	ro.observe(headerTop);
+	ro.observe(headerBottom);
 	const onResize = () => requestAnimationFrame(setVar);
 	window.addEventListener("resize", onResize, {
 		passive: true,
@@ -5430,27 +5439,62 @@ document.querySelectorAll("[data-fls-headercatalog]").forEach((catalog) => {
 //#endregion
 //#region src/components/layout/header/plugins/scroll/scroll.js
 function headerScroll() {
-	const header = document.querySelector("[data-fls-header-scroll]");
-	const headerShow = header.hasAttribute("data-fls-header-scroll-show");
-	const headerShowTimer = header.dataset.flsHeaderScrollShow ? header.dataset.flsHeaderScrollShow : 500;
-	const startPoint = header.dataset.flsHeaderScroll ? header.dataset.flsHeaderScroll : 1;
+	const headers = Array.from(document.querySelectorAll("[data-fls-header-scroll]"));
+	if (!headers.length) return;
+	const headerShow = headers.some((header) => header.hasAttribute("data-fls-header-scroll-show"));
+	const headerWithShowTimer = headers.find((header) => header.dataset.flsHeaderScrollShow);
+	const headerShowTimer = headerWithShowTimer ? headerWithShowTimer.dataset.flsHeaderScrollShow : 500;
 	let scrollDirection = 0;
 	let timer;
+	const getStartPoint = (header) => {
+		if (header.dataset.flsHeaderScroll) return Number(header.dataset.flsHeaderScroll);
+		const rect = header.getBoundingClientRect();
+		return Math.max(rect.top + window.scrollY, 1);
+	};
+	const headerItems = headers.map((header) => ({
+		header,
+		startPoint: getStartPoint(header)
+	}));
+	const updateStartPoints = () => {
+		headerItems.forEach((item) => {
+			item.startPoint = getStartPoint(item.header);
+		});
+	};
+	const toggleHeaderScrollClass = (scrollTop) => {
+		headerItems.forEach((item) => {
+			const method = scrollTop >= item.startPoint ? "add" : "remove";
+			item.header.classList[method]("--header-scroll");
+			item.header.closest(".header")?.classList[method]("--header-bottom-scroll");
+			if (method === "add") {
+				item.header.setAttribute("data-fls-lp", "");
+				if (document.documentElement.hasAttribute("data-fls-scrolllock")) item.header.style.paddingRight = document.body.style.paddingRight;
+			} else {
+				item.header.removeAttribute("data-fls-lp");
+				item.header.style.paddingRight = "";
+			}
+			if (!headerShow || scrollTop >= item.startPoint) return;
+			item.header.classList.remove("--header-show");
+		});
+	};
+	const toggleHeaderShowClass = (method) => {
+		headerItems.forEach((item) => {
+			if (item.header.hasAttribute("data-fls-header-scroll-show")) item.header.classList[method]("--header-show");
+		});
+	};
+	updateStartPoints();
+	window.addEventListener("resize", () => {
+		requestAnimationFrame(updateStartPoints);
+	}, { passive: true });
 	document.addEventListener("scroll", function(e) {
 		const scrollTop = window.scrollY;
 		clearTimeout(timer);
-		if (scrollTop >= startPoint) {
-			!header.classList.contains("--header-scroll") && header.classList.add("--header-scroll");
-			if (headerShow) {
-				if (scrollTop > scrollDirection) header.classList.contains("--header-show") && header.classList.remove("--header-show");
-				else !header.classList.contains("--header-show") && header.classList.add("--header-show");
-				timer = setTimeout(() => {
-					!header.classList.contains("--header-show") && header.classList.add("--header-show");
-				}, headerShowTimer);
-			}
-		} else {
-			header.classList.contains("--header-scroll") && header.classList.remove("--header-scroll");
-			if (headerShow) header.classList.contains("--header-show") && header.classList.remove("--header-show");
+		toggleHeaderScrollClass(scrollTop);
+		if (headerShow) {
+			if (scrollTop > scrollDirection) toggleHeaderShowClass("remove");
+			else toggleHeaderShowClass("add");
+			timer = setTimeout(() => {
+				toggleHeaderShowClass("add");
+			}, headerShowTimer);
 		}
 		scrollDirection = scrollTop <= 0 ? 0 : scrollTop;
 	});

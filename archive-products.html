@@ -11,17 +11,17 @@
 		<link rel="preload" href="./assets/fonts/Gilroy-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 		<link rel="shortcut icon" href="./assets/img/favicon.ico">
 		<title>Каталог товаров</title>
-		<script type="module" crossorigin="" src="./js/archive-products.min.js?v=1777307828313"></script>
+		<script type="module" crossorigin="" src="./js/archive-products.min.js?v=1777391339872"></script>
 		<link rel="modulepreload" crossorigin="" href="./js/app.min.js">
-		<link rel="stylesheet" crossorigin="" href="./css/app.min.css?v=1777307828313">
-		<link rel="stylesheet" crossorigin="" href="./css/archive-products.min.css?v=1777307828313">
-		<link rel="stylesheet" crossorigin="" href="./css/main.min.css?v=1777307828313">
+		<link rel="stylesheet" crossorigin="" href="./css/app.min.css?v=1777391339872">
+		<link rel="stylesheet" crossorigin="" href="./css/archive-products.min.css?v=1777391339872">
+		<link rel="stylesheet" crossorigin="" href="./css/main.min.css?v=1777391339872">
 	</head>
 	<body>
 		<div class="wrapper">
-			<header data-fls-header="" data-fls-header-scroll="" class="header">
-				<div class="header__container">
-					<div class="header__top">
+			<header data-fls-header="" class="header">
+				<div class="header__top">
+					<div class="header__container-top">
 						<div class="logo" data-fls-logo="">
 							<a href="index.html" class="logo__link" aria-label="Halman — на главную">
 								<span class="logo__mark">
@@ -84,7 +84,9 @@
 							<span class="header__cart-count">2</span>
 						</a>
 					</div>
-					<div class="header__bottom">
+				</div>
+				<div data-fls-header-scroll="" class="header__bottom">
+					<div class="header__container-bottom">
 						<div class="header__catalog" data-fls-dynamic=".menu__body, 991.98, 0">
 							<div class="header-catalog" data-fls-headercatalog="">
 								<button type="button" class="header-catalog__toggle">
@@ -225,7 +227,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="header__search" data-fls-dynamic=".header__top, 991.98,last">
+						<div class="header__search" data-fls-dynamic=".header__container-top, 991.98,last">
 							<div class="search" data-fls-search="">
 								<form action="/search/" method="GET" class="search__form search__form--desktop search-form">
 									<div class="search-form__wrapper">
@@ -330,6 +332,14 @@
 								</div>
 							</div>
 						</div>
+						<a href="#" class="header__cart header__cart_bottom" data-fls-popup-link="cart" aria-label="Корзина">
+							<span class="header__cart-icon">
+								<svg class="icon" aria-hidden="true">
+									<use href="./assets/img/spritemap.svg#sprite-cart"></use>
+								</svg>
+							</span>
+							<span class="header__cart-count">2</span>
+						</a>
 					</div>
 				</div>
 			</header>

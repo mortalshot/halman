@@ -582,7 +582,7 @@
   }
   #bx-soa-delivery .bx-soa-pp-desc-container {
     position: sticky;
-    top: calc(var(--header-height) + 1.5rem);
+    top: calc(var(--header-bottom-height, 0rem) + 1.5rem);
     align-self: start;
   }
 }
@@ -594,7 +594,7 @@
   }
   .bx-soa-sidebar {
     position: sticky;
-    top: calc(var(--header-height) + 1.5rem);
+    top: calc(var(--header-bottom-height, 0rem) + 1.5rem);
   }
 }
 

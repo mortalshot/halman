@@ -2352,6 +2352,30 @@ if (tippyItems.length) tippy(tippyItems, {
 });
 //#endregion
 //#region src/components/sections/single-products/single-products.js
+function initSingleProductStickyPurchase() {
+	const desktopMedia = window.matchMedia("(min-width: 991.98px)");
+	document.querySelectorAll("[data-fls-single-products]").forEach((section) => {
+		const purchaseButton = section.querySelector(".single-product__button");
+		const stickyButton = section.querySelector(".single-product__sticky-button");
+		if (!purchaseButton || !stickyButton) return;
+		const updateStickyPurchase = () => {
+			if (!desktopMedia.matches) {
+				section.classList.remove("--sticky-purchase-visible");
+				return;
+			}
+			const headerOffset = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--header-bottom-height")) || 0;
+			const shouldShow = purchaseButton.getBoundingClientRect().bottom <= headerOffset;
+			section.classList.toggle("--sticky-purchase-visible", shouldShow);
+		};
+		stickyButton.addEventListener("click", () => {
+			purchaseButton.click();
+		});
+		updateStickyPurchase();
+		window.addEventListener("scroll", updateStickyPurchase, { passive: true });
+		window.addEventListener("resize", updateStickyPurchase, { passive: true });
+		desktopMedia.addEventListener("change", updateStickyPurchase);
+	});
+}
 function initSingleProductGalleryAssets() {
 	document.querySelectorAll("[data-fls-single-products]").forEach((section) => {
 		section.querySelectorAll("[data-fls-gallery-item]").forEach((item) => {
@@ -2378,6 +2402,7 @@ function initSingleProductGalleryAssets() {
 	});
 }
 document.addEventListener("DOMContentLoaded", initSingleProductGalleryAssets);
+document.addEventListener("DOMContentLoaded", initSingleProductStickyPurchase);
 //#endregion
 //#region src/components/custom/copy/copy.js
 document.addEventListener("click", (e) => {

@@ -172,6 +172,14 @@
   min-height: 100svh;
   overflow: hidden;
 }
+.hero__slide_center .hero__content {
+  justify-self: center;
+  justify-items: center;
+  text-align: center;
+}
+.hero__slide_light .hero__content {
+  color: #fff;
+}
 .hero__media {
   position: absolute;
   inset: 0;
