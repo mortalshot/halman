@@ -4589,12 +4589,13 @@ function EffectFade({ swiper, extendParams, on }) {
 //#region src/components/layout/slider/slider.js
 function ensureHeroVideoLoaded(video) {
 	if (video.dataset.loaded === "true") return;
-	const source = video.querySelector("source[data-src]");
-	if (source) {
+	let shouldLoad = false;
+	video.querySelectorAll("source[data-src]").forEach((source) => {
 		source.src = source.dataset.src;
 		source.removeAttribute("data-src");
-		video.load();
-	}
+		shouldLoad = true;
+	});
+	if (shouldLoad) video.load();
 	video.dataset.loaded = "true";
 }
 function updateHeroVideoState(swiper, shouldPlay = true) {

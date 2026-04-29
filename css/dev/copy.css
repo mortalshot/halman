@@ -101,6 +101,8 @@
   left: 0;
   z-index: 44;
   width: 100%;
+  background-color: #fff;
+  border-bottom: 0.0625rem solid rgba(44, 44, 52, 0.08);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -120,8 +122,6 @@
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 1.5rem;
   min-height: 5.875rem;
-  background-color: #fff;
-  border-bottom: 0.0625rem solid rgba(44, 44, 52, 0.08);
 }
 .single-product__sticky-about {
   display: grid;
