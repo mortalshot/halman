@@ -4839,6 +4839,7 @@ function initSingleProductSliders() {
 		const thumbsEl = sliderWrapper.querySelector("[data-fls-slider=\"single-product-thumbs\"]");
 		let productThumbsSwiper = null;
 		if (thumbsEl) {
+			const thumbsSlidesCount = thumbsEl.querySelectorAll(".swiper-slide").length;
 			productThumbsSwiper = new Swiper(thumbsEl, {
 				modules: [
 					A11y,
@@ -4856,7 +4857,7 @@ function initSingleProductSliders() {
 				a11y: { enabled: false },
 				breakpoints: isLayoutTwo ? { 992: {
 					direction: "vertical",
-					slidesPerView: 4,
+					slidesPerView: isLayoutTwo && thumbsSlidesCount <= 4 ? "auto" : 4,
 					spaceBetween: 12
 				} } : {},
 				navigation: isLayoutTwo && thumbsNav.length === 2 ? {
@@ -4867,7 +4868,7 @@ function initSingleProductSliders() {
 			if (isLayoutTwo && thumbsNav.length === 2) {
 				const thumbsColumn = sliderWrapper.querySelector(".single-product__thumbs-column");
 				const updateThumbNavState = () => {
-					const isLocked = productThumbsSwiper.isLocked || productThumbsSwiper.slides.length <= 4;
+					const isLocked = productThumbsSwiper.isLocked || thumbsSlidesCount <= 4;
 					thumbsNav.forEach((nav) => {
 						nav.classList.toggle("_hidden", isLocked);
 					});

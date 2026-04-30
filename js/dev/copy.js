@@ -2383,25 +2383,46 @@ function initSingleProductGalleryAssets() {
 			const href = item.getAttribute("href");
 			if (image && !item.dataset.src && !item.hasAttribute("data-single-product-video") && !href) item.dataset.src = image.currentSrc || image.dataset.src || image.getAttribute("src") || "";
 			if (item.hasAttribute("data-single-product-video")) {
+				const videoEmbed = item.dataset.videoEmbed || "";
 				const videoSrc = item.dataset.videoSrc || "";
 				const videoType = item.dataset.videoType || "video/mp4";
-				item.dataset.src = "";
-				item.dataset.video = JSON.stringify({
-					source: [{
-						src: videoSrc,
-						type: videoType
-					}],
-					attributes: {
-						preload: "metadata",
-						controls: true,
-						playsinline: true
-					}
-				});
+				if (videoEmbed) {
+					item.dataset.src = videoEmbed;
+					item.removeAttribute("href");
+					item.setAttribute("data-iframe", "true");
+					item.removeAttribute("data-video");
+				} else {
+					item.dataset.src = "";
+					item.dataset.video = JSON.stringify({
+						source: [{
+							src: videoSrc,
+							type: videoType
+						}],
+						attributes: {
+							preload: "metadata",
+							controls: true,
+							playsinline: true
+						}
+					});
+				}
 			}
 		});
 	});
 }
+function initSingleProductVideoThumbs() {
+	document.querySelectorAll("[data-fls-single-products]").forEach((section) => {
+		const galleryItems = [...section.querySelectorAll(".single-product__gallery [data-fls-gallery-item]")];
+		section.querySelectorAll(".single-product__thumb-button_video[data-gallery-open-index]").forEach((button) => {
+			button.addEventListener("click", (event) => {
+				event.preventDefault();
+				event.stopPropagation();
+				galleryItems[Number(button.dataset.galleryOpenIndex)]?.click();
+			});
+		});
+	});
+}
 document.addEventListener("DOMContentLoaded", initSingleProductGalleryAssets);
+document.addEventListener("DOMContentLoaded", initSingleProductVideoThumbs);
 document.addEventListener("DOMContentLoaded", initSingleProductStickyPurchase);
 //#endregion
 //#region src/components/custom/copy/copy.js
