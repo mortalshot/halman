@@ -10,10 +10,10 @@
 		<link rel="preload" href="./assets/fonts/Gilroy-Light.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 		<link rel="preload" href="./assets/fonts/Gilroy-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 		<link rel="shortcut icon" href="./assets/img/favicon.ico">
-		<title>Корзина</title>
-		<script type="module" crossorigin="" src="./js/cart.min.js?v=1778685438859"></script>
+		<title>Страница не найдена</title>
+		<script type="module" crossorigin="" src="./js/404.min.js?v=1778685438854"></script>
 		<link rel="modulepreload" crossorigin="" href="./js/app.min.js">
-		<link rel="stylesheet" crossorigin="" href="./css/style.min.css?v=1778685438859">
+		<link rel="stylesheet" crossorigin="" href="./css/style.min.css?v=1778685438854">
 	</head>
 	<body>
 		<div class="wrapper">
@@ -325,254 +325,17 @@
 					</div>
 				</div>
 			</header>
-			<main class="page">
-				<section class="cart-section" data-fls-cart="">
-					<div class="cart-section__container">
-						<div class="cart-section__back _heading">
-							<a href="/catalog/" class="popup-cart__back">
-								<span class="popup-cart__back-icon">
-									<svg class="icon" aria-hidden="true">
-										<use href="./assets/img/spritemap.svg#sprite-arrow"></use>
-									</svg>
-								</span>
-								<span>Вернуться к покупкам</span>
-							</a>
+			<main class="page page_error">
+				<section class="error-section" data-fls-error-section="" aria-labelledby="error-section-title">
+					<div class="error-section__container">
+						<div class="error-section__body">
+							<img class="error-section__image" src="./assets/img/error.svg" alt="" aria-hidden="true">
+							<h1 id="error-section-title" class="error-section__title">Страница не найдена.</h1>
+							<a href="index.html" class="error-section__button btn btn_big btn_bg-main" data-fls-button="">На главную</a>
 						</div>
-						<div class="cart-section__heading _heading">
-							<h1 class="cart-section__title">
-								Корзина
-								<sup>2</sup>
-							</h1>
-						</div>
-						<div id="warning_message"></div>
-						<form method="post" action="/personal/cart/" name="basket_form" id="basket_form">
-							<div class="cart-section__grid" id="cart">
-								<div class="cart-section__main">
-									<ul class="cart-section__items">
-										<li class="cart-item cart-item_basket" data-itemid="1767565" data-itemproductid="4474" name="Halman D700 Dream легкий вертикальный пылесос для повседневных задач">
-											<a href="/single-products.html" class="cart-item__image">
-												<picture>
-													<img alt="Halman D700 Dream" loading="lazy" src="./assets/img/products/product1-image1.webp">
-												</picture>
-											</a>
-											<div class="cart-item__about">
-												<a href="/single-products.html" class="cart-item__name">Halman D700 Dream легкий вертикальный пылесос для повседневных задач</a>
-												<div class="cart-item__code">
-													Артикул:
-													<strong>ET14330</strong>
-												</div>
-											</div>
-											<div class="cart-item__quantity">
-												<div data-fls-quantity="" class="quantity">
-													<button data-fls-quantity-minus="" type="button" class="quantity__button quantity__button--minus" aria-label="Уменьшить количество"></button>
-													<div class="quantity__input">
-														<input data-fls-quantity-value="" autocomplete="off" type="text" name="quantity[]" value="1" aria-label="Количество">
-													</div>
-													<button data-fls-quantity-plus="" type="button" class="quantity__button quantity__button--plus" aria-label="Увеличить количество"></button>
-												</div>
-											</div>
-											<div class="cart-item__price">
-												<div class="price">
-													<div class="price price_old">5 590 ₽</div>
-													<div class="price price_new">3 290 ₽</div>
-												</div>
-											</div>
-											<div class="cart-item__actions">
-												<div class="cart-item__remove deleteFromCart_1c" data-itemid="1767565">
-													<button type="button" aria-label="Удалить товар">
-														<svg class="icon" aria-hidden="true">
-															<use href="./assets/img/spritemap.svg#sprite-close"></use>
-														</svg>
-													</button>
-												</div>
-											</div>
-										</li>
-										<li class="cart-item cart-item_basket" data-itemid="1767566" data-itemproductid="20886" name="Halman D700 Dream легкий вертикальный пылесос для повседневных задач">
-											<a href="/single-products.html" class="cart-item__image">
-												<picture>
-													<img alt="Halman D700 Dream" loading="lazy" src="./assets/img/products/product1-image1.webp">
-												</picture>
-											</a>
-											<div class="cart-item__about">
-												<a href="/single-products.html" class="cart-item__name">Halman D700 Dream легкий вертикальный пылесос для повседневных задач</a>
-												<div class="cart-item__code">
-													Артикул:
-													<strong>ET14330</strong>
-												</div>
-											</div>
-											<div class="cart-item__quantity">
-												<div data-fls-quantity="" class="quantity">
-													<button data-fls-quantity-minus="" type="button" class="quantity__button quantity__button--minus" aria-label="Уменьшить количество"></button>
-													<div class="quantity__input">
-														<input data-fls-quantity-value="" autocomplete="off" type="text" name="quantity[]" value="1" aria-label="Количество">
-													</div>
-													<button data-fls-quantity-plus="" type="button" class="quantity__button quantity__button--plus" aria-label="Увеличить количество"></button>
-												</div>
-											</div>
-											<div class="cart-item__price">
-												<div class="price">
-													<div class="price price_current">3 290 ₽</div>
-												</div>
-											</div>
-											<div class="cart-item__actions">
-												<div class="cart-item__remove deleteFromCart_1c" data-itemid="1767566">
-													<button type="button" aria-label="Удалить товар">
-														<svg class="icon" aria-hidden="true">
-															<use href="./assets/img/spritemap.svg#sprite-close"></use>
-														</svg>
-													</button>
-												</div>
-											</div>
-										</li>
-									</ul>
-									<div style="display: none;"></div>
-								</div>
-								<aside class="cart-section__sidebar cart-sidebar">
-									<div class="cart-sidebar__wrapper">
-										<div class="cart-sidebar__card cart-sidebar__promocode promocode">
-											<div class="promocode__wrapper">
-												<div class="activated-promo">
-													<div class="cart-sidebar__caption promocode__label">Активированный промокод</div>
-													<div class="promocode__row">
-														<input name="promo" type="text" class="form__input" value="" placeholder="Введите код здесь" data-placeholder="Введите код здесь">
-														<button class="promocode-change__btn btn btn_bg-gray">Изменить</button>
-													</div>
-												</div>
-												<div class="default-promo active">
-													<div class="cart-sidebar__caption promocode__label">Промокод</div>
-													<div class="promocode__row">
-														<input name="promo" type="text" class="input form__input" placeholder="Введите код здесь" data-placeholder="Введите код здесь">
-														<button class="promocode__btn btn btn_bg-main">
-															<svg class="icon" aria-hidden="true">
-																<use href="./assets/img/spritemap.svg#sprite-edit"></use>
-															</svg>
-														</button>
-													</div>
-												</div>
-												<div class="promocode__notify"></div>
-											</div>
-										</div>
-										<div class="cart-sidebar__card cart-sidebar__total cart-total">
-											<div class="cart-total__wrapper">
-												<div class="cart-sidebar__caption cart-total__caption">Стоимость заказа:</div>
-												<div class="cart-total__price">
-													<div class="price">
-														<div class="price price_new">3 290 ₽</div>
-														<div class="price price_old">5 590 ₽</div>
-													</div>
-												</div>
-												<div class="cart-total__button">
-													<a href="/personal/order/" class="btn btn_big btn_bg-main">Оформить заказ</a>
-												</div>
-											</div>
-										</div>
-									</div>
-								</aside>
-							</div>
-							<input type="hidden" name="BasketOrder" value="BasketOrder">
-							<!-- <input type="hidden" name="ajax_post" id="ajax_post" value="Y"> -->
-						</form>
 					</div>
 				</section>
 			</main>
-			<footer data-fls-footer="" class="footer">
-				<div class="footer__container">
-					<div class="footer__top">
-						<div class="footer__contacts">
-							<address class="footer__address">
-								198095, г. Санкт-Петербург,
-								<br>
-								ул. Маршала Говорова,
-								<br>
-								д. 49, лит. А, оф. 504
-							</address>
-							<div class="footer__contact-list">
-								<a href="tel:88007773412" class="footer__contact link-hover">8 800 777-34-12</a>
-								<a href="mailto:info@halman.ru" class="footer__contact link-hover">info@halman.ru</a>
-							</div>
-						</div>
-						<nav class="footer__nav" aria-label="Навигация в футере">
-							<ul class="footer__list">
-								<li class="footer__item">
-									<a href="#" class="footer__link link-hover">О Halman</a>
-								</li>
-								<li class="footer__item">
-									<a href="#" class="footer__link link-hover">Пылесосы</a>
-								</li>
-								<li class="footer__item">
-									<a href="#" class="footer__link link-hover">Забота о клиентах</a>
-								</li>
-								<li class="footer__item">
-									<a href="#" class="footer__link link-hover">Вопросы и ответы</a>
-								</li>
-								<li class="footer__item">
-									<a href="#" class="footer__link link-hover">Адрес и контакты</a>
-								</li>
-							</ul>
-							<ul class="footer__list">
-								<li class="footer__item">
-									<a href="#" class="footer__link link-hover">Каталог</a>
-								</li>
-								<li class="footer__item">
-									<a href="#" class="footer__link link-hover">Пылесосы</a>
-								</li>
-								<li class="footer__item">
-									<a href="#" class="footer__link link-hover">Вакууматоры</a>
-								</li>
-								<li class="footer__item">
-									<a href="#" class="footer__link link-hover">Аэрогрили</a>
-								</li>
-								<li class="footer__item">
-									<a href="#" class="footer__link link-hover">Пароочистители</a>
-								</li>
-							</ul>
-						</nav>
-						<div class="footer__subscribe subscribe">
-							<div class="subscribe__head">
-								<div class="subscribe__title">Добро пожаловать в клуб Halman!</div>
-								<div class="subscribe__text">
-									Узнавайте первыми о распродажах на маркетплейсах и получайте промокоды на скидку
-								</div>
-							</div>
-							<form action="#" method="POST" class="subscribe__form">
-								<label class="subscribe__field">
-									<span class="sr-only">Email</span>
-									<input data-fls-input="" autocomplete="off" type="email" name="email" placeholder="Ваш email" class="subscribe__input input">
-								</label>
-								<button type="button" class="subscribe__submit" data-fls-popup-link="subscribe-success" aria-label="Подписаться">
-									<svg class="icon" aria-hidden="true">
-										<use href="./assets/img/spritemap.svg#sprite-send"></use>
-									</svg>
-								</button>
-							</form>
-							<label class="subscribe__agree checkbox" data-fls-checkbox="">
-								<input class="checkbox__input" type="checkbox" name="agree" checked>
-								<span class="checkbox__text">
-									Я согласен(на) на
-									<a href="#" class="link-underline">обработку персональных данных</a>
-									и принимаю
-									<a href="#" class="link-underline">политику конфиденциальности</a>
-								</span>
-							</label>
-						</div>
-					</div>
-					<div class="footer__bottom">
-						<div class="logo" data-fls-logo="">
-							<a href="index.html" class="logo__link" aria-label="Halman — на главную">
-								<span class="logo__mark">
-									<img src="./assets/img/logo.svg" width="166" height="11" alt="" loading="lazy">
-								</span>
-							</a>
-							<span class="logo__descriptor">Освободите время для важного</span>
-						</div>
-						<div class="footer__made">
-							<a href="https://lensite.ru/" class="link-hover" target="_blank" rel="noopener noreferrer">Сделано в Lensite</a>
-						</div>
-						<a href="#" class="footer__policy link-hover">Политика обработки персональных данных</a>
-						<a href="#" class="footer__offer link-hover">Условия публичной оферты</a>
-					</div>
-				</div>
-			</footer>
 		</div>
 		<div data-fls-popup="cart" aria-hidden="true" class="popup popup_cart cart-popup">
 			<div data-fls-popup-wrapper="" class="popup__wrapper cart-popup__wrapper">

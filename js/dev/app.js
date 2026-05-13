@@ -5600,10 +5600,9 @@ document.querySelectorAll("[data-fls-search]").forEach((search) => {
 	const mobileToggle = search.querySelector(".search__mobile-toggle");
 	const modal = search.querySelector(".search__modal");
 	const overlay = search.querySelector(".search__overlay");
-	const desktopInput = search.querySelector(".search__input--desktop");
-	const modalInput = search.querySelector(".search__input--modal");
-	const desktopClose = search.querySelector(".search__close--desktop");
-	const modalClose = search.querySelector(".search__close--modal");
+	const input = search.querySelector(".search__input");
+	const closeButton = search.querySelector(".search__close");
+	const desktopMedia = window.matchMedia("(min-width: 991.98px)");
 	const closeCatalog = () => {
 		const activeCatalog = document.querySelector(".header-catalog._catalog-active");
 		if (activeCatalog) {
@@ -5627,12 +5626,11 @@ document.querySelectorAll("[data-fls-search]").forEach((search) => {
 		modal?.setAttribute("aria-hidden", "false");
 		document.documentElement.setAttribute("data-fls-search-open", "");
 		if (!isMenuOpen()) bodyLock();
-		setTimeout(() => modalInput?.focus(), 0);
+		setTimeout(() => input?.focus(), 0);
 	};
 	const closeSearch = ({ clear = false } = {}) => {
 		if (clear) {
-			if (desktopInput) desktopInput.value = "";
-			if (modalInput) modalInput.value = "";
+			if (input) input.value = "";
 		}
 		if (!(search.classList.contains("_search-active") || search.classList.contains("_search-modal-active"))) return;
 		search.classList.remove("_search-active", "_search-modal-active");
@@ -5641,11 +5639,13 @@ document.querySelectorAll("[data-fls-search]").forEach((search) => {
 		document.documentElement.removeAttribute("data-fls-search-open");
 		if (!document.querySelector(".header-catalog._catalog-active") && !isMenuOpen()) bodyUnlock();
 	};
-	desktopInput?.addEventListener("focus", openDesktopSearch);
-	desktopInput?.addEventListener("click", openDesktopSearch);
+	const openSearchByInput = () => {
+		if (desktopMedia.matches) openDesktopSearch();
+	};
+	input?.addEventListener("focus", openSearchByInput);
+	input?.addEventListener("click", openSearchByInput);
 	mobileToggle?.addEventListener("click", openMobileSearch);
-	desktopClose?.addEventListener("click", () => closeSearch({ clear: true }));
-	modalClose?.addEventListener("click", () => closeSearch({ clear: true }));
+	closeButton?.addEventListener("click", () => closeSearch({ clear: true }));
 	overlay?.addEventListener("click", () => closeSearch());
 	document.addEventListener("keydown", (e) => {
 		if (e.key === "Escape" || e.key === "Esc") closeSearch();
@@ -5759,6 +5759,54 @@ function initLazyLoad() {
 	});
 }
 document.addEventListener("DOMContentLoaded", initLazyLoad);
+//#endregion
+//#region src/components/effects/scroll-offset/scroll-offset.js
+var scrollContainersSelector = [
+	".cart-popup__items",
+	".search__modal",
+	".header-catalog__wrapper"
+].join(",");
+var scrollContainers = /* @__PURE__ */ new Set();
+var finePointerMedia = window.matchMedia("(hover: hover) and (pointer: fine)");
+var hasVerticalScroll = (element) => element.scrollHeight > element.clientHeight + 1;
+var updateScrollOffset = (element) => {
+	element.classList.toggle("_has-vertical-scroll", finePointerMedia.matches && hasVerticalScroll(element));
+};
+var collectScrollContainers = () => {
+	document.querySelectorAll(scrollContainersSelector).forEach((element) => {
+		if (scrollContainers.has(element)) return;
+		scrollContainers.add(element);
+		resizeObserver.observe(element);
+		updateScrollOffset(element);
+	});
+};
+var updateAllScrollOffsets = () => {
+	collectScrollContainers();
+	scrollContainers.forEach(updateScrollOffset);
+};
+var resizeObserver = new ResizeObserver((entries) => {
+	entries.forEach(({ target }) => updateScrollOffset(target));
+});
+var mutationObserver = new MutationObserver(() => {
+	requestAnimationFrame(updateAllScrollOffsets);
+});
+collectScrollContainers();
+mutationObserver.observe(document.body, {
+	subtree: true,
+	childList: true,
+	attributes: true,
+	attributeFilter: [
+		"class",
+		"style",
+		"data-fls-popup-active",
+		"data-fls-menu-open",
+		"data-fls-search-open",
+		"data-fls-catalog-open"
+	]
+});
+window.addEventListener("resize", updateAllScrollOffsets);
+window.addEventListener("load", updateAllScrollOffsets);
+finePointerMedia.addEventListener("change", updateAllScrollOffsets);
 //#endregion
 //#region src/js/app.js
 addLoadedAttr();

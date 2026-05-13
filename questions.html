@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="robots" content="noindex, nofollow">
@@ -10,10 +10,11 @@
 		<link rel="preload" href="./assets/fonts/Gilroy-Light.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 		<link rel="preload" href="./assets/fonts/Gilroy-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 		<link rel="shortcut icon" href="./assets/img/favicon.ico">
-		<title>Корзина</title>
-		<script type="module" crossorigin="" src="./js/cart.min.js?v=1778685438859"></script>
+		<title>Вопросы и ответы</title>
+		<script type="module" crossorigin="" src="./js/questions.min.js?v=1778685438858"></script>
 		<link rel="modulepreload" crossorigin="" href="./js/app.min.js">
-		<link rel="stylesheet" crossorigin="" href="./css/style.min.css?v=1778685438859">
+		<link rel="modulepreload" crossorigin="" href="./js/spollers.min.js">
+		<link rel="stylesheet" crossorigin="" href="./css/style.min.css?v=1778685438858">
 	</head>
 	<body>
 		<div class="wrapper">
@@ -325,153 +326,105 @@
 					</div>
 				</div>
 			</header>
-			<main class="page">
-				<section class="cart-section" data-fls-cart="">
-					<div class="cart-section__container">
-						<div class="cart-section__back _heading">
-							<a href="/catalog/" class="popup-cart__back">
-								<span class="popup-cart__back-icon">
-									<svg class="icon" aria-hidden="true">
-										<use href="./assets/img/spritemap.svg#sprite-arrow"></use>
-									</svg>
-								</span>
-								<span>Вернуться к покупкам</span>
-							</a>
-						</div>
-						<div class="cart-section__heading _heading">
-							<h1 class="cart-section__title">
-								Корзина
-								<sup>2</sup>
-							</h1>
-						</div>
-						<div id="warning_message"></div>
-						<form method="post" action="/personal/cart/" name="basket_form" id="basket_form">
-							<div class="cart-section__grid" id="cart">
-								<div class="cart-section__main">
-									<ul class="cart-section__items">
-										<li class="cart-item cart-item_basket" data-itemid="1767565" data-itemproductid="4474" name="Halman D700 Dream легкий вертикальный пылесос для повседневных задач">
-											<a href="/single-products.html" class="cart-item__image">
-												<picture>
-													<img alt="Halman D700 Dream" loading="lazy" src="./assets/img/products/product1-image1.webp">
-												</picture>
-											</a>
-											<div class="cart-item__about">
-												<a href="/single-products.html" class="cart-item__name">Halman D700 Dream легкий вертикальный пылесос для повседневных задач</a>
-												<div class="cart-item__code">
-													Артикул:
-													<strong>ET14330</strong>
-												</div>
+			<main class="inner">
+				<div class="breadcrumbs" data-fls-breadcrumbs="">
+					<div class="breadcrumbs__container">
+						<nav class="breadcrumbs__nav" aria-label="Breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+							<ul class="breadcrumbs__list">
+								<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+									<a class="breadcrumbs__link link-hover" href="index.html" itemprop="item">
+										<span itemprop="name">Главная</span>
+									</a>
+									<meta itemprop="position" content="1">
+								</li>
+								<span class="breadcrumbs__sep" aria-hidden="true">/</span>
+								<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+									<a class="breadcrumbs__link link-hover" href="#" itemprop="item">
+										<span itemprop="name">Покупателям</span>
+									</a>
+									<meta itemprop="position" content="2">
+								</li>
+								<span class="breadcrumbs__sep" aria-hidden="true">/</span>
+								<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+									<span class="breadcrumbs__current" itemprop="name" aria-current="page">Вопросы и ответы</span>
+									<meta itemprop="position" content="3">
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+				<section class="inner__section">
+					<div class="inner__container">
+						<div class="inner__layout">
+							<aside class="inner__aside">
+								<nav class="customers-menu" aria-label="Меню раздела">
+									<div data-fls-spollers="991.98,max" class="customers-menu__spollers spollers">
+										<details class="spollers__item">
+											<summary class="customers-menu__summary spollers__title">Вопросы и ответы</summary>
+											<div class="customers-menu__body spollers__body">
+												<ul class="customers-menu__list">
+													<li class="customers-menu__item">
+														<a href="about.html" class="customers-menu__link">О Halman</a>
+													</li>
+													<li class="customers-menu__item">
+														<a href="customer-care.html" class="customers-menu__link">Забота о клиентах</a>
+													</li>
+													<li class="customers-menu__item customers-menu__item--active">
+														<a href="questions.html" class="customers-menu__link customers-menu__link--active">Вопросы и ответы</a>
+													</li>
+													<li class="customers-menu__item">
+														<a href="club-halman.html" class="customers-menu__link">Клуб Halman</a>
+													</li>
+													<li class="customers-menu__item">
+														<a href="serial-number.html" class="customers-menu__link">Серийный номер</a>
+													</li>
+													<li class="customers-menu__item">
+														<a href="contacts.html" class="customers-menu__link">Контакты</a>
+													</li>
+												</ul>
 											</div>
-											<div class="cart-item__quantity">
-												<div data-fls-quantity="" class="quantity">
-													<button data-fls-quantity-minus="" type="button" class="quantity__button quantity__button--minus" aria-label="Уменьшить количество"></button>
-													<div class="quantity__input">
-														<input data-fls-quantity-value="" autocomplete="off" type="text" name="quantity[]" value="1" aria-label="Количество">
-													</div>
-													<button data-fls-quantity-plus="" type="button" class="quantity__button quantity__button--plus" aria-label="Увеличить количество"></button>
-												</div>
-											</div>
-											<div class="cart-item__price">
-												<div class="price">
-													<div class="price price_old">5 590 ₽</div>
-													<div class="price price_new">3 290 ₽</div>
-												</div>
-											</div>
-											<div class="cart-item__actions">
-												<div class="cart-item__remove deleteFromCart_1c" data-itemid="1767565">
-													<button type="button" aria-label="Удалить товар">
-														<svg class="icon" aria-hidden="true">
-															<use href="./assets/img/spritemap.svg#sprite-close"></use>
-														</svg>
-													</button>
-												</div>
-											</div>
-										</li>
-										<li class="cart-item cart-item_basket" data-itemid="1767566" data-itemproductid="20886" name="Halman D700 Dream легкий вертикальный пылесос для повседневных задач">
-											<a href="/single-products.html" class="cart-item__image">
-												<picture>
-													<img alt="Halman D700 Dream" loading="lazy" src="./assets/img/products/product1-image1.webp">
-												</picture>
-											</a>
-											<div class="cart-item__about">
-												<a href="/single-products.html" class="cart-item__name">Halman D700 Dream легкий вертикальный пылесос для повседневных задач</a>
-												<div class="cart-item__code">
-													Артикул:
-													<strong>ET14330</strong>
-												</div>
-											</div>
-											<div class="cart-item__quantity">
-												<div data-fls-quantity="" class="quantity">
-													<button data-fls-quantity-minus="" type="button" class="quantity__button quantity__button--minus" aria-label="Уменьшить количество"></button>
-													<div class="quantity__input">
-														<input data-fls-quantity-value="" autocomplete="off" type="text" name="quantity[]" value="1" aria-label="Количество">
-													</div>
-													<button data-fls-quantity-plus="" type="button" class="quantity__button quantity__button--plus" aria-label="Увеличить количество"></button>
-												</div>
-											</div>
-											<div class="cart-item__price">
-												<div class="price">
-													<div class="price price_current">3 290 ₽</div>
-												</div>
-											</div>
-											<div class="cart-item__actions">
-												<div class="cart-item__remove deleteFromCart_1c" data-itemid="1767566">
-													<button type="button" aria-label="Удалить товар">
-														<svg class="icon" aria-hidden="true">
-															<use href="./assets/img/spritemap.svg#sprite-close"></use>
-														</svg>
-													</button>
-												</div>
-											</div>
-										</li>
-									</ul>
-									<div style="display: none;"></div>
-								</div>
-								<aside class="cart-section__sidebar cart-sidebar">
-									<div class="cart-sidebar__wrapper">
-										<div class="cart-sidebar__card cart-sidebar__promocode promocode">
-											<div class="promocode__wrapper">
-												<div class="activated-promo">
-													<div class="cart-sidebar__caption promocode__label">Активированный промокод</div>
-													<div class="promocode__row">
-														<input name="promo" type="text" class="form__input" value="" placeholder="Введите код здесь" data-placeholder="Введите код здесь">
-														<button class="promocode-change__btn btn btn_bg-gray">Изменить</button>
-													</div>
-												</div>
-												<div class="default-promo active">
-													<div class="cart-sidebar__caption promocode__label">Промокод</div>
-													<div class="promocode__row">
-														<input name="promo" type="text" class="input form__input" placeholder="Введите код здесь" data-placeholder="Введите код здесь">
-														<button class="promocode__btn btn btn_bg-main">
-															<svg class="icon" aria-hidden="true">
-																<use href="./assets/img/spritemap.svg#sprite-edit"></use>
-															</svg>
-														</button>
-													</div>
-												</div>
-												<div class="promocode__notify"></div>
-											</div>
-										</div>
-										<div class="cart-sidebar__card cart-sidebar__total cart-total">
-											<div class="cart-total__wrapper">
-												<div class="cart-sidebar__caption cart-total__caption">Стоимость заказа:</div>
-												<div class="cart-total__price">
-													<div class="price">
-														<div class="price price_new">3 290 ₽</div>
-														<div class="price price_old">5 590 ₽</div>
-													</div>
-												</div>
-												<div class="cart-total__button">
-													<a href="/personal/order/" class="btn btn_big btn_bg-main">Оформить заказ</a>
-												</div>
-											</div>
-										</div>
+										</details>
 									</div>
-								</aside>
+								</nav>
+							</aside>
+							<div class="inner__content">
+								<section class="faq" data-fls-faq="" aria-labelledby="faq-title">
+									<h1 id="faq-title" class="faq__title">Вопросы и ответы</h1>
+									<div data-fls-spollers="" class="faq__spollers spollers">
+										<details class="faq__item spollers__item" open>
+											<summary class="faq__question spollers__title">Каков срок гарантии на технику Halman?</summary>
+											<div class="faq__answer spollers__body">
+												<p>На все продукты мы даем гарантию 2 года</p>
+											</div>
+										</details>
+										<details class="faq__item spollers__item">
+											<summary class="faq__question spollers__title">Что делать, если возникли сложности с использованием техники?</summary>
+											<div class="faq__answer spollers__body">
+												<p>
+													Мы - рядом! Если возникли сложности, напишите на
+													<a href="mailto:service@halman.ru" class="faq__link">service@halman.ru</a>
+													. Сотрудники службы заботы о клиентах помогут разобраться.
+												</p>
+											</div>
+										</details>
+										<details class="faq__item spollers__item">
+											<summary class="faq__question spollers__title">Где получить гарантийное обслуживание Halman?</summary>
+											<div class="faq__answer spollers__body">
+												<p>
+													Гарантийное обслуживание выполняют мастера
+													<a href="#" class="faq__link">авторизованных сервисных центров</a>
+													Halman в соответствии с требованиями, отраженными в ФЗ РФ от 07.02.1992 N 2300-1
+													<a href="#" class="faq__link">«О защите прав потребителей»</a>
+													. Свяжитесь со службой заботы о клиентах Halman по электронной почте
+													<a href="mailto:service@halman.ru" class="faq__link">service@halman.ru</a>
+													. В письме укажите населенный пункт, приложите документы о покупке и фото серийного номера устройства
+												</p>
+											</div>
+										</details>
+									</div>
+								</section>
 							</div>
-							<input type="hidden" name="BasketOrder" value="BasketOrder">
-							<!-- <input type="hidden" name="ajax_post" id="ajax_post" value="Y"> -->
-						</form>
+						</div>
 					</div>
 				</section>
 			</main>

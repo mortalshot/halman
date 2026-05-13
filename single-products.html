@@ -11,16 +11,11 @@
 		<link rel="preload" href="./assets/fonts/Gilroy-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 		<link rel="shortcut icon" href="./assets/img/favicon.ico">
 		<title>Карточка товара</title>
-		<script type="module" crossorigin="" src="./js/single-products.min.js?v=1777554206053"></script>
+		<script type="module" crossorigin="" src="./js/single-products.min.js?v=1778685438856"></script>
 		<link rel="modulepreload" crossorigin="" href="./js/app.min.js">
 		<link rel="modulepreload" crossorigin="" href="./js/offer-club.min.js">
 		<link rel="modulepreload" crossorigin="" href="./js/copy.min.js">
-		<link rel="stylesheet" crossorigin="" href="./css/app.min.css?v=1777554206053">
-		<link rel="stylesheet" crossorigin="" href="./css/offer-club.min.css?v=1777554206053">
-		<link rel="stylesheet" crossorigin="" href="./css/copy.min.css?v=1777554206053">
-		<link rel="stylesheet" crossorigin="" href="./css/breadcrumbs.min.css?v=1777554206053">
-		<link rel="stylesheet" crossorigin="" href="./css/widget-products.min.css?v=1777554206053">
-		<link rel="stylesheet" crossorigin="" href="./css/main.min.css?v=1777554206053">
+		<link rel="stylesheet" crossorigin="" href="./css/style.min.css?v=1778685438856">
 	</head>
 	<body>
 		<div class="wrapper">
@@ -234,7 +229,7 @@
 						</div>
 						<div class="header__search" data-fls-dynamic=".header__container-top, 991.98,last">
 							<div class="search" data-fls-search="">
-								<form action="/search/" method="GET" class="search__form search__form--desktop search-form">
+								<form action="/search/" method="GET" class="search__form search-form" data-fls-dynamic=".search__container, 991.98, 1">
 									<div class="search-form__wrapper">
 										<div class="search-form__input">
 											<span class="search__icon">
@@ -242,8 +237,9 @@
 													<use href="./assets/img/spritemap.svg#sprite-search"></use>
 												</svg>
 											</span>
-											<input data-fls-input="" autocomplete="off" type="text" name="q" value="" placeholder="Поиск" data-placeholder="Поиск" class="search__input search__input--desktop input">
-											<button type="reset" class="search__close search__close--desktop search-form__reset animation" data-fls-iconanimation="" aria-label="Закрыть поиск">
+											<span id="search-label" class="sr-only">Поиск</span>
+											<input data-fls-input="" autocomplete="off" type="text" name="q" value="" placeholder="Поиск" data-placeholder="Поиск" aria-labelledby="search-label" class="search__input input">
+											<button type="reset" class="search__close search-form__reset animation" data-fls-iconanimation="" aria-label="Закрыть поиск">
 												<svg class="icon icon_close animation__object" aria-hidden="true">
 													<use href="./assets/img/spritemap.svg#sprite-close"></use>
 												</svg>
@@ -260,23 +256,6 @@
 								<div class="search__modal" aria-hidden="true" style="display: none;">
 									<div class="search__container">
 										<div class="search__caption">Поиск</div>
-										<form action="/search/" method="GET" class="search__form search__form--modal search-form">
-											<div class="search-form__wrapper">
-												<div class="search-form__input">
-													<span class="search__icon">
-														<svg class="icon icon_search" aria-hidden="true">
-															<use href="./assets/img/spritemap.svg#sprite-search"></use>
-														</svg>
-													</span>
-													<input data-fls-input="" autocomplete="off" type="text" name="q" value="" placeholder="Поиск" data-placeholder="Поиск" class="search__input search__input--modal input">
-													<button type="reset" class="search__close search__close--modal search-form__reset animation" data-fls-iconanimation="" aria-label="Закрыть поиск">
-														<svg class="icon icon_close animation__object" aria-hidden="true">
-															<use href="./assets/img/spritemap.svg#sprite-close"></use>
-														</svg>
-													</button>
-												</div>
-											</div>
-										</form>
 										<div class="search__results search-results">
 											<div class="search-results__tags">
 												<a href="/search/?q=Пылесос D700" class="search-results__tag">Пылесос D700</a>
@@ -843,6 +822,7 @@
 												</h2>
 												<form action="#" method="post" class="offer-club__form">
 													<label class="offer-club__field">
+														<span class="sr-only">Email</span>
 														<input data-fls-input="" autocomplete="off" type="email" name="email" placeholder="Ваш email" class="offer-club__input input">
 													</label>
 													<button type="submit" class="offer-club__submit btn btn_bg-main" data-fls-button="">
@@ -915,6 +895,7 @@
 												</h2>
 												<form action="#" method="post" class="offer-club__form">
 													<label class="offer-club__field">
+														<span class="sr-only">Email</span>
 														<input data-fls-input="" autocomplete="off" type="email" name="email" placeholder="Ваш email" class="offer-club__input input">
 													</label>
 													<button type="submit" class="offer-club__submit btn btn_bg-main" data-fls-button="">
@@ -949,6 +930,7 @@
 												</h2>
 												<form action="#" method="post" class="offer-club__form">
 													<label class="offer-club__field">
+														<span class="sr-only">Email</span>
 														<input data-fls-input="" autocomplete="off" type="email" name="email" placeholder="Ваш email" class="offer-club__input input">
 													</label>
 													<button type="submit" class="offer-club__submit btn btn_bg-main" data-fls-button="">
@@ -1244,6 +1226,7 @@
 							</div>
 							<form action="#" method="POST" class="subscribe__form">
 								<label class="subscribe__field">
+									<span class="sr-only">Email</span>
 									<input data-fls-input="" autocomplete="off" type="email" name="email" placeholder="Ваш email" class="subscribe__input input">
 								</label>
 								<button type="button" class="subscribe__submit" data-fls-popup-link="subscribe-success" aria-label="Подписаться">
@@ -1410,6 +1393,12 @@
 				<a href="single-products.html">single-products</a>
 			</li>
 			<li>
+				<a href="serial-number.html">serial-number</a>
+			</li>
+			<li>
+				<a href="questions.html">questions</a>
+			</li>
+			<li>
 				<a href="index.html">index</a>
 			</li>
 			<li>
@@ -1417,6 +1406,9 @@
 			</li>
 			<li>
 				<a href="contacts.html">contacts</a>
+			</li>
+			<li>
+				<a href="club-halman.html">club-halman</a>
 			</li>
 			<li>
 				<a href="checkout.html">checkout</a>
@@ -1429,6 +1421,9 @@
 			</li>
 			<li>
 				<a href="about.html">about</a>
+			</li>
+			<li>
+				<a href="404.html">404</a>
 			</li>
 		</ul>
 		<style>
