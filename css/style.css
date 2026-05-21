@@ -727,6 +727,9 @@ video {
   position: absolute;
   inset: 0;
 }
+.header-catalog .product-card__title {
+  flex: initial;
+}
 .header-catalog .product-card__text {
   flex: 1;
   font-size: 0.8125rem;
